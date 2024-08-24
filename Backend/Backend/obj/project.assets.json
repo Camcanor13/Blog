@@ -4026,11 +4026,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\luzaf\\OneDrive\\Imágenes\\Backend\\Backend\\Backend.csproj",
+      "projectUniqueName": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\Backend.csproj",
       "projectName": "Backend",
-      "projectPath": "C:\\Users\\luzaf\\OneDrive\\Imágenes\\Backend\\Backend\\Backend.csproj",
+      "projectPath": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\Backend.csproj",
       "packagesPath": "C:\\Users\\luzaf\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\luzaf\\OneDrive\\Imágenes\\Backend\\Backend\\obj\\",
+      "outputPath": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
