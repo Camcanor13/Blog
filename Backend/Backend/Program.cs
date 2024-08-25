@@ -23,6 +23,18 @@ builder.Services.AddSingleton<PublicacionesService>(provider =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Configurar CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigin",
+        builder =>
+        {
+            builder.WithOrigins("http://localhost:5173") // Permitir solicitudes desde el origen especificado
+                   .AllowAnyHeader()                    // Permitir cualquier encabezado
+                   .AllowAnyMethod();                   // Permitir cualquier método HTTP
+        });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -33,6 +45,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// Aplicar la política de CORS
+app.UseCors("AllowSpecificOrigin");
+
 app.UseAuthorization();
 
 app.MapControllers();

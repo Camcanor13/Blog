@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background-image: url(https://w7.pngwing.com/pngs/413/139/png-transparent-books-background-books-retro-library.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}

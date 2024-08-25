@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "Backend.Controllers.AddPublicationsController",
+    "Method": "AddPublication",
+    "RelativePath": "api/AddPublications",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Backend.Controllers.PublicationRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "ListUsersController",
     "Method": "Get",
     "RelativePath": "api/ListUsers",

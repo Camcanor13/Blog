@@ -2,7 +2,9 @@
 //POR AHORA SOLO ESTA PARA IMPRIMIR TODAS LAS PUBLICACIONES EN UN JSON 
 using MySql.Data.MySqlClient;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+
 namespace Backend
 {
     public class PublicacionesService
@@ -61,7 +63,54 @@ namespace Backend
 
             return publications;
         }
+
+        public async Task<string> AddPublication(string title, string body, DateTime date, int comments, int qualification, string status, int author)
+        {
+            try
+            {
+                using (var connection = new MySqlConnection(_connectionString))
+                {
+                    await connection.OpenAsync();
+
+                    // Verificar si el título ya está registrado
+                    var checkQuery = "SELECT COUNT(*) FROM publicaciones WHERE title = @Title";
+                    using (var checkCommand = new MySqlCommand(checkQuery, connection))
+                    {
+                        checkCommand.Parameters.AddWithValue("@Title", title);
+                        var count = Convert.ToInt32(await checkCommand.ExecuteScalarAsync());
+
+                        if (count > 0)
+                        {
+                            return "Ya existe una publicación con ese título.";
+                        }
+                    }
+
+                    // Insertar la nueva publicación
+                    var insertQuery = "INSERT INTO publicaciones (title, body, date, coments, qualification, estado, author) VALUES (@Title, @Body, @Date, @Comments, @Qualification, @Status, @Author)";
+                    using (var insertCommand = new MySqlCommand(insertQuery, connection))
+                    {
+                        insertCommand.Parameters.AddWithValue("@Title", title);
+                        insertCommand.Parameters.AddWithValue("@Body", body);
+                        insertCommand.Parameters.AddWithValue("@Date", date);
+                        insertCommand.Parameters.AddWithValue("@Comments", comments);
+                        insertCommand.Parameters.AddWithValue("@Qualification", qualification);
+                        insertCommand.Parameters.AddWithValue("@Status", status);
+                        insertCommand.Parameters.AddWithValue("@Author", author);
+
+                        await insertCommand.ExecuteNonQueryAsync();
+                    }
+
+                    return "Registro exitoso.";
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores
+                return "Error al procesar la solicitud. Inténtalo de nuevo más tarde.";
+            }
+        }
     }
+
     public class Publication
     {
         public int Id { get; set; }
@@ -73,7 +122,5 @@ namespace Backend
         public string Status { get; set; }
         public string Author { get; set; }
     }
-
 }
-
 

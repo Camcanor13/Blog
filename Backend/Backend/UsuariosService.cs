@@ -17,7 +17,7 @@ namespace Backend
         }
 
         //METODO PARA HACER EL LOGIN
-        public async Task<string> LoginAsync(string email, string password)
+        public async Task<LoginResponse> LoginAsync(string email, string password)
         {
             try
             {
@@ -38,29 +38,48 @@ namespace Backend
                                 var storedPassword = reader["password"].ToString();
                                 if (storedPassword == password)
                                 {
+                                    var id = Convert.ToInt32(reader["id"]);
                                     var userName = reader["user"].ToString();
                                     var rol = reader["rol"].ToString();
-                                    return $"Concedido acceso. Bienvenido: {userName}, Su rol es: {rol}";
-                                    
 
+                                    // Crear y retornar el objeto de respuesta
+                                    return new LoginResponse
+                                    {
+                                        Id = id,
+                                        UserName = userName,
+                                        Rol = rol,
+                                        Email = email
+                                    };
                                 }
                                 else
                                 {
-                                    return "Contraseña incorrecta.";
+                                    throw new UnauthorizedAccessException("Contraseña incorrecta.");
                                 }
                             }
                             else
                             {
-                                return "El usuario no existe.";
+                                throw new UnauthorizedAccessException("El usuario no existe.");
                             }
                         }
                     }
                 }
             }
-            catch (Exception ex)
+            catch (UnauthorizedAccessException ex)
             {
-                return "Error al procesar la solicitud. Inténtalo de nuevo más tarde.";
+                throw new UnauthorizedAccessException(ex.Message);
             }
+            catch (Exception)
+            {
+                throw new Exception("Error al procesar la solicitud. Inténtalo de nuevo más tarde.");
+            }
+        }
+
+        public class LoginResponse { 
+             public int Id { get; set; }
+        
+            public string UserName { get; set; }
+            public string Rol { get; set; }
+            public string Email { get; set; }
         }
 
         //METODO PARA EL REGISTRO

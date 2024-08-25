@@ -1,6 +1,5 @@
-﻿//controlador para el login
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Backend;
 
 namespace Backend.Controllers
 {
@@ -18,17 +17,29 @@ namespace Backend.Controllers
         [HttpPost]
         public async Task<IActionResult> Login([FromBody] LoginRequest request)
         {
-            var result = await _usuariosService.LoginAsync(request.Email, request.Password);
-            if (result.StartsWith("Concedido acceso"))
+            try
             {
-                return Ok(result);
+                var response = await _usuariosService.LoginAsync(request.Email, request.Password);
+
+                // Si la respuesta es null, se considera un error
+                if (response == null)
+                {
+                    return Unauthorized("Error de autenticación.");
+                }
+
+                return Ok(response);
             }
-            else
+            catch (UnauthorizedAccessException ex)
             {
-                return Unauthorized(result);
+                return Unauthorized(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Error al procesar la solicitud. Inténtalo de nuevo más tarde.");
             }
         }
     }
+
 
     public class LoginRequest
     {
