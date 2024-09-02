@@ -35,7 +35,7 @@ namespace Backend.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Error al procesar la solicitud. Inténtalo de nuevo más tarde.");
+                return StatusCode(500, ex.Message);
             }
         }
     }
