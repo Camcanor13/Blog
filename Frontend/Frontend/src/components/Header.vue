@@ -36,9 +36,12 @@ const logout = () => {
 </script>
 
 <template>
-  <p>Tu cuenta tiene permisos de:{{ tipoRol }}</p>
-  <p>{{ nombreUsuario }}</p>
+  <div class="flex border border-black space-x-24">
+    <p>Tu cuenta tiene permisos de:{{ tipoRol }}</p>
+  <p>Usuario: {{ nombreUsuario }}</p>
   <button @click="logout">Cerrar sesión</button>
+  </div>
+
 </template>
 
 <style scoped>

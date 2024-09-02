@@ -36,26 +36,42 @@
   
 
   const register = async () => {
-    try {
-    
-      const response = await axios.post('/api/Register', {
-        email: email.value,
-        password: password.value,
-        user: user.value,
-        rol: rol.value,
-      });
+  // Validaciones
+  if (!email.value || !password.value || !user.value || !rol.value) {
+    alert('Todos los campos son obligatorios.');
+    return;
+  }
+  
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailPattern.test(email.value)) {
+    alert('Por favor, ingresa un correo electrónico válido.');
+    return;
+  }
 
-      if (response.status === 200) {
-        alert('Registro exitoso');
-        router.push('/'); 
-      } else {
-        alert('Error: ' + response.data);
-      }
-    } catch (error) {
-      console.error('Error al registrar:', error);
-      alert('Error al registrar: ' + error.response.data);
+  if (password.value.length < 8) {
+    alert('La contraseña debe tener al menos 8 caracteres.');
+    return;
+  }
+
+  try {
+    const response = await axios.post('/api/Register', {
+      email: email.value,
+      password: password.value,
+      user: user.value,
+      rol: rol.value,
+    });
+
+    if (response.status === 200) {
+      alert('Registro exitoso');
+      router.push('/'); 
+    } else {
+      alert('Error: ' + response.data);
     }
-  };
+  } catch (error) {
+    console.error('Error al registrar:', error);
+    alert('Error al registrar: ' + error.response?.data || error.message);
+  }
+};
   </script>
   
   <style scoped>

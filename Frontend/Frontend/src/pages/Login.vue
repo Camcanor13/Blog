@@ -3,15 +3,15 @@ import { ref } from 'vue';
 import axios from 'axios';
 
 import { useRouter } from 'vue-router';
-// Crear referencias reactivas para los campos del formulario
+
 const email = ref('');
 const password = ref('');
 const router = useRouter();
 
-// Función para manejar el envío del formulario
+
 const login = async () => {
   try {
-    // Enviar una solicitud POST al backend con los datos del formulario
+   
     const response = await axios.post('/api/Login', {
       email: email.value,
       password: password.value,
@@ -26,10 +26,10 @@ const login = async () => {
         userName: response.data.userName,
         rol: response.data.rol,
         email: response.data.email
-      }));
+      })); //almacena los datos de la persona que inicio sesion en localstorage
 
       alert(`Bienvenida: ${response.data.userName}`);
-      router.push("/dashboard") // Mostrar mensaje de éxito
+      router.push("/dashboard/inicio") // Mostrar mensaje de éxito
       
     } else {
       alert('Acceso denegado: ' + response.data); // Mostrar mensaje de error

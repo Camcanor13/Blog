@@ -3,48 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CC8CE3F0-2BE7-4FAC-AFFD-6E70406D92A7}|Backend\\Backend.csproj|c:\\users\\luzaf\\onedrive\\escritorio\\lenguaje\\blog\\backend\\backend\\publicacionesservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC8CE3F0-2BE7-4FAC-AFFD-6E70406D92A7}|Backend\\Backend.csproj|solutionrelative:backend\\publicacionesservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CC8CE3F0-2BE7-4FAC-AFFD-6E70406D92A7}|Backend\\Backend.csproj|c:\\users\\luzaf\\onedrive\\escritorio\\lenguaje\\blog\\backend\\backend\\usuariosservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC8CE3F0-2BE7-4FAC-AFFD-6E70406D92A7}|Backend\\Backend.csproj|solutionrelative:backend\\usuariosservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CC8CE3F0-2BE7-4FAC-AFFD-6E70406D92A7}|Backend\\Backend.csproj|c:\\users\\luzaf\\onedrive\\escritorio\\lenguaje\\blog\\backend\\backend\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC8CE3F0-2BE7-4FAC-AFFD-6E70406D92A7}|Backend\\Backend.csproj|solutionrelative:backend\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CC8CE3F0-2BE7-4FAC-AFFD-6E70406D92A7}|Backend\\Backend.csproj|c:\\users\\luzaf\\onedrive\\escritorio\\lenguaje\\blog\\backend\\backend\\controllers\\publicationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CC8CE3F0-2BE7-4FAC-AFFD-6E70406D92A7}|Backend\\Backend.csproj|solutionrelative:backend\\controllers\\publicationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CC8CE3F0-2BE7-4FAC-AFFD-6E70406D92A7}|Backend\\Backend.csproj|c:\\users\\luzaf\\onedrive\\escritorio\\lenguaje\\blog\\backend\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC8CE3F0-2BE7-4FAC-AFFD-6E70406D92A7}|Backend\\Backend.csproj|solutionrelative:backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CC8CE3F0-2BE7-4FAC-AFFD-6E70406D92A7}|Backend\\Backend.csproj|c:\\users\\luzaf\\onedrive\\escritorio\\lenguaje\\blog\\backend\\backend\\controllers\\editpublicationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CC8CE3F0-2BE7-4FAC-AFFD-6E70406D92A7}|Backend\\Backend.csproj|solutionrelative:backend\\controllers\\editpublicationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CC8CE3F0-2BE7-4FAC-AFFD-6E70406D92A7}|Backend\\Backend.csproj|c:\\users\\luzaf\\onedrive\\escritorio\\lenguaje\\blog\\backend\\backend\\controllers\\registercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC8CE3F0-2BE7-4FAC-AFFD-6E70406D92A7}|Backend\\Backend.csproj|solutionrelative:backend\\controllers\\registercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CC8CE3F0-2BE7-4FAC-AFFD-6E70406D92A7}|Backend\\Backend.csproj|c:\\users\\luzaf\\onedrive\\escritorio\\lenguaje\\blog\\backend\\backend\\controllers\\addpublicationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC8CE3F0-2BE7-4FAC-AFFD-6E70406D92A7}|Backend\\Backend.csproj|solutionrelative:backend\\controllers\\addpublicationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CC8CE3F0-2BE7-4FAC-AFFD-6E70406D92A7}|Backend\\Backend.csproj|c:\\users\\luzaf\\onedrive\\escritorio\\lenguaje\\blog\\backend\\backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{CC8CE3F0-2BE7-4FAC-AFFD-6E70406D92A7}|Backend\\Backend.csproj|solutionrelative:backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CC8CE3F0-2BE7-4FAC-AFFD-6E70406D92A7}|Backend\\Backend.csproj|c:\\users\\luzaf\\onedrive\\escritorio\\lenguaje\\blog\\backend\\backend\\controllers\\listuserscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC8CE3F0-2BE7-4FAC-AFFD-6E70406D92A7}|Backend\\Backend.csproj|solutionrelative:backend\\controllers\\listuserscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CC8CE3F0-2BE7-4FAC-AFFD-6E70406D92A7}|Backend\\Backend.csproj|c:\\users\\luzaf\\onedrive\\escritorio\\lenguaje\\blog\\backend\\backend\\backend.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
-      "RelativeMoniker": "D:0:0:{CC8CE3F0-2BE7-4FAC-AFFD-6E70406D92A7}|Backend\\Backend.csproj|solutionrelative:backend\\backend.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CC8CE3F0-2BE7-4FAC-AFFD-6E70406D92A7}|Backend\\Backend.csproj|c:\\users\\luzaf\\onedrive\\escritorio\\lenguaje\\blog\\backend\\backend\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{CC8CE3F0-2BE7-4FAC-AFFD-6E70406D92A7}|Backend\\Backend.csproj|solutionrelative:backend\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{CC8CE3F0-2BE7-4FAC-AFFD-6E70406D92A7}|Backend\\Backend.csproj|c:\\users\\luzaf\\onedrive\\escritorio\\lenguaje\\blog\\backend\\backend\\publicacionesservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CC8CE3F0-2BE7-4FAC-AFFD-6E70406D92A7}|Backend\\Backend.csproj|solutionrelative:backend\\publicacionesservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,11 +22,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Bookmark",
@@ -66,146 +38,46 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "PublicacionesService.cs",
-              "DocumentMoniker": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\PublicacionesService.cs",
-              "RelativeDocumentMoniker": "Backend\\PublicacionesService.cs",
-              "ToolTip": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\PublicacionesService.cs",
-              "RelativeToolTip": "Backend\\PublicacionesService.cs",
-              "ViewState": "AgIAADwAAAAAAAAAAAAYwEoAAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-24T21:48:43.312Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AddPublicationsController.cs",
-              "DocumentMoniker": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\Controllers\\AddPublicationsController.cs",
-              "RelativeDocumentMoniker": "Backend\\Controllers\\AddPublicationsController.cs",
-              "ToolTip": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\Controllers\\AddPublicationsController.cs",
-              "RelativeToolTip": "Backend\\Controllers\\AddPublicationsController.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAAYwDYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-25T17:43:13.73Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "RegisterController.cs",
-              "DocumentMoniker": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\Controllers\\RegisterController.cs",
-              "RelativeDocumentMoniker": "Backend\\Controllers\\RegisterController.cs",
-              "ToolTip": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\Controllers\\RegisterController.cs",
-              "RelativeToolTip": "Backend\\Controllers\\RegisterController.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAAAAABgAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-24T20:15:07.841Z",
-              "EditorCaption": ""
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "UsuariosService.cs",
-              "DocumentMoniker": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\UsuariosService.cs",
-              "RelativeDocumentMoniker": "Backend\\UsuariosService.cs",
-              "ToolTip": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\UsuariosService.cs",
-              "RelativeToolTip": "Backend\\UsuariosService.cs",
-              "ViewState": "AgIAAEcAAAAAAAAAAAAmwGEAAABOAAAAAAAAAA==",
+              "Title": "EditPublicationsController.cs",
+              "DocumentMoniker": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\Controllers\\EditPublicationsController.cs",
+              "RelativeDocumentMoniker": "Backend\\Controllers\\EditPublicationsController.cs",
+              "ToolTip": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\Controllers\\EditPublicationsController.cs",
+              "RelativeToolTip": "Backend\\Controllers\\EditPublicationsController.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAYwDEAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-24T18:48:07.64Z",
+              "WhenOpened": "2024-09-02T01:54:51.438Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\Program.cs",
-              "RelativeDocumentMoniker": "Backend\\Program.cs",
-              "ToolTip": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\Program.cs",
-              "RelativeToolTip": "Backend\\Program.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAAADAAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-24T16:52:52.832Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "LoginController.cs",
-              "DocumentMoniker": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\Controllers\\LoginController.cs",
-              "RelativeDocumentMoniker": "Backend\\Controllers\\LoginController.cs",
-              "ToolTip": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\Controllers\\LoginController.cs",
-              "RelativeToolTip": "Backend\\Controllers\\LoginController.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAwA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-24T16:49:47.253Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "PublicationsController.cs",
               "DocumentMoniker": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\Controllers\\PublicationsController.cs",
               "RelativeDocumentMoniker": "Backend\\Controllers\\PublicationsController.cs",
               "ToolTip": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\Controllers\\PublicationsController.cs",
               "RelativeToolTip": "Backend\\Controllers\\PublicationsController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA3AAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAYwCIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-24T22:13:58.572Z",
+              "WhenOpened": "2024-09-02T01:54:01.821Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ListUsersController.cs",
-              "DocumentMoniker": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\Controllers\\ListUsersController.cs",
-              "RelativeDocumentMoniker": "Backend\\Controllers\\ListUsersController.cs",
-              "ToolTip": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\Controllers\\ListUsersController.cs",
-              "RelativeToolTip": "Backend\\Controllers\\ListUsersController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "PublicacionesService.cs",
+              "DocumentMoniker": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\PublicacionesService.cs",
+              "RelativeDocumentMoniker": "Backend\\PublicacionesService.cs",
+              "ToolTip": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\PublicacionesService.cs",
+              "RelativeToolTip": "Backend\\PublicacionesService.cs",
+              "ViewState": "AgIAAIUAAAAAAAAAAAAiwKsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-24T17:32:39.332Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Backend.http",
-              "DocumentMoniker": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\Backend.http",
-              "RelativeDocumentMoniker": "Backend\\Backend.http",
-              "ToolTip": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\Backend.http",
-              "RelativeToolTip": "Backend\\Backend.http",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2024-08-24T17:19:18.296Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\appsettings.json",
-              "RelativeDocumentMoniker": "Backend\\appsettings.json",
-              "ToolTip": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\appsettings.json",
-              "RelativeToolTip": "Backend\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-08-24T16:57:47.001Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "Backend\\Properties\\launchSettings.json",
-              "ToolTip": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\Properties\\launchSettings.json",
-              "RelativeToolTip": "Backend\\Properties\\launchSettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAABHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-08-24T17:41:18.814Z"
+              "WhenOpened": "2024-09-02T01:51:04.67Z",
+              "EditorCaption": ""
             }
           ]
         }

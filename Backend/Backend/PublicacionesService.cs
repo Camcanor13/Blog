@@ -109,7 +109,73 @@ namespace Backend
                 return "Error al procesar la solicitud. Inténtalo de nuevo más tarde.";
             }
         }
+
+
+
+        public async Task<string> UpdatePublication(int id, string title, string body, DateTime date, int comments, int qualification, string status)
+        {
+            try
+            {
+                using (var connection = new MySqlConnection(_connectionString))
+                {
+                    await connection.OpenAsync();
+
+                    // Verificar si el título ya está registrado para otra publicación
+                    var checkQuery = "SELECT COUNT(*) FROM publicaciones WHERE title = @Title AND id != @Id";
+                    using (var checkCommand = new MySqlCommand(checkQuery, connection))
+                    {
+                        checkCommand.Parameters.AddWithValue("@Title", title);
+                        checkCommand.Parameters.AddWithValue("@Id", id);
+                        var count = Convert.ToInt32(await checkCommand.ExecuteScalarAsync());
+
+                        if (count > 0)
+                        {
+                            return "Ya existe una publicación con ese título.";
+                        }
+                    }
+
+                    // Actualizar la publicación existente
+                    var updateQuery = @"
+                UPDATE publicaciones
+                SET title = @Title, body = @Body, date = @Date, coments = @Comments, qualification = @Qualification, estado = @Status
+                WHERE id = @Id";
+                    using (var updateCommand = new MySqlCommand(updateQuery, connection))
+                    {
+                        updateCommand.Parameters.AddWithValue("@Title", title);
+                        updateCommand.Parameters.AddWithValue("@Body", body);
+                        updateCommand.Parameters.AddWithValue("@Date", date);
+                        updateCommand.Parameters.AddWithValue("@Comments", comments);
+                        updateCommand.Parameters.AddWithValue("@Qualification", qualification);
+                        updateCommand.Parameters.AddWithValue("@Status", status);
+                        updateCommand.Parameters.AddWithValue("@Id", id);
+
+                        var rowsAffected = await updateCommand.ExecuteNonQueryAsync();
+                        if (rowsAffected > 0)
+                        {
+                            return "Actualización exitosa.";
+                        }
+                        else
+                        {
+                            return "No se encontró la publicación para actualizar.";
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores
+                return "Error al procesar la solicitud. Inténtalo de nuevo más tarde.";
+            }
+        }
+
+
+
     }
+
+    //editar publicacion
+
+
+
 
     public class Publication
     {

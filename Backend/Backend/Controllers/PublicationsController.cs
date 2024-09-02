@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-
-using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -14,7 +13,7 @@ namespace Backend.Controllers
 
         public PublicationsController(PublicacionesService publicationsService)
         {
-            _publicationsService = publicationsService;
+            _publicationsService = publicationsService; // Asignar el servicio al campo privado
         }
 
         [HttpGet]
