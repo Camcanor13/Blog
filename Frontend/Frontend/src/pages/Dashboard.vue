@@ -9,7 +9,7 @@
 <script setup>
 
 import Header from '../components/Header.vue';
-import Navegacion from '../components/Navegacion.vue'
+import Navegacion from '../components/Navegacion.vue' 
 
 
 </script>

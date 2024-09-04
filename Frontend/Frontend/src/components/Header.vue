@@ -1,49 +1,58 @@
+<template>
+ <div class="flex items-center justify-between border border-gray-300 p-4 shadow-md">
+    <!-- Sección de permisos -->
+    <div class="flex items-center space-x-4">
+      <p class="text-sm text-gray-700">
+        Tu cuenta tiene permisos de: <span class="font-semibold">{{ tipoRol }}</span>
+      </p>
+      <p class="text-sm text-gray-700">
+        Usuario: <span class="font-semibold">{{ nombreUsuario }}</span>
+      </p>
+    </div>
+    
+    <!-- Icono de usuario y menú desplegable -->
+    <div class="relative">
+      <button @click="toggleDropdown" class="flex items-center p-2">
+        <svg class="h-6 w-6 text-gray-600" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+      </button>
+      <div v-if="showDropdown" class="absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20">
+        <a href="/dashboard/perfil" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Perfil</a>
+        <a @click="logout" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Cerrar sesión</a>
+      </div>
+    </div>
+ </div>
+</template>
+
 <script setup>
 import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 
-
 const nombreUsuario = ref('');
 const tipoRol = ref('');
 const router = useRouter();
-
+const showDropdown = ref(false);
 
 // Leer los datos del localStorage al montar el componente
 onMounted(() => {
   const userData = localStorage.getItem('userData');
   if (userData) {
-    // Parsear los datos JSON a un objeto JavaScript
     const user = JSON.parse(userData);
-    console.log(user);
     nombreUsuario.value = user.userName;
-    if(user.rol==="1"){
-    tipoRol.value="Autor"
-  }else if(user.rol==="2"){
-     tipoRol.value='Moderador'
-  }else{
-    tipoRol.value="Lector"
+    tipoRol.value = user.rol === "1" ? "Autor" : user.rol === "2" ? "Moderador" : "Lector";
   }
-  }
-
 });
 
 const logout = () => {
-  // Eliminar los datos del localStorage
   localStorage.removeItem('userData');
-  alert("Se cerro sesion exitosamente :)");
+  alert("Se cerró sesión exitosamente :)");
   router.push('/');
+};
+
+const toggleDropdown = () => {
+  showDropdown.value = !showDropdown.value;
 };
 </script>
 
-<template>
-  <div class="flex border border-black space-x-24">
-    <p>Tu cuenta tiene permisos de:{{ tipoRol }}</p>
-  <p>Usuario: {{ nombreUsuario }}</p>
-  <button @click="logout">Cerrar sesión</button>
-  </div>
-
-</template>
-
 <style scoped>
-/* Estilos opcionales */
+/* Estilos opcionales aquí */
 </style>

@@ -23,7 +23,7 @@ const login = async () => {
 
       localStorage.setItem('userData', JSON.stringify({
         id:response.data.id,
-        userName: response.data.userName,
+        userName: response.data.userName, 
         rol: response.data.rol,
         email: response.data.email
       })); //almacena los datos de la persona que inicio sesion en localstorage
