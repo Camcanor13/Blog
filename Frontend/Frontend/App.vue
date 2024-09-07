@@ -2,26 +2,26 @@
 <script>
 
 </script>
-<template class="bg-black">
+<template class="font-roboto ">
     <router-view></router-view>
-  </template>
-  
-  <style>
- @import "src/style.css";
+</template>
 
-    ::-webkit-scrollbar {
-        width: 5px;
-    }
+<style>
+@import "src/style.css";
 
-    ::-webkit-scrollbar-track {
-        background: #2D3748;
-    }
+::-webkit-scrollbar {
+    width: 5px;
+}
 
-    ::-webkit-scrollbar-thumb {
-        background: #CBD5E0;
-    }
+::-webkit-scrollbar-track {
+    background: #2D3748;
+}
 
-    ::-webkit-scrollbar-thumb:hover {
-        background: #2D3748;
-    }
-    </style>
+::-webkit-scrollbar-thumb {
+    background: #CBD5E0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #2D3748;
+}
+</style>
