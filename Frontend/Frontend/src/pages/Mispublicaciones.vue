@@ -1,7 +1,7 @@
 <template>
     <div>
-        <div v-if="isEditing">
-            <form @submit.prevent="saveChanges" class="fixed z-10 bg-white border border-black">
+        <div v-if="isEditing" >
+            <form @submit.prevent="saveChanges" class="fixed  z-10 bg-white border border-black">
         <label>Título:</label>
         <input v-model="editPublication.title" type="text" />
         <label>Cuerpo:</label>

@@ -51,9 +51,11 @@ const login = async () => {
       <label>Contraseña:</label>
       <input v-model="password" type="password" placeholder="**********" class="border rounded-md">
     </div>
+    <p >¿Aún no estás registrado? <router-link to="/registro">Click Aquí</router-link></p>
     <button type="submit" class="border rounded-full bg-zinc-300 px-2 py-1 hover:bg-zinc-500">Iniciar sesión</button>
+   
   </form>
-  <p>¿Aún no estás registrado? <router-link to="/registro">Click Aquí</router-link></p>
+  
 </template>
 
 <style scoped>

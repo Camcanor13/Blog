@@ -19,6 +19,12 @@ builder.Services.AddSingleton<PublicacionesService>(provider =>
     return new PublicacionesService(connectionString);
 });
 
+builder.Services.AddSingleton<ComentariosService>(provider =>
+{
+    var connectionString = builder.Configuration.GetConnectionString("MySqlConnection");
+    return new ComentariosService(connectionString);
+});
+
 // Configurar Swagger/OpenAPI
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "Backend.Controllers.AddCommentController",
+    "Method": "AddComment",
+    "RelativePath": "api/AddComment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Backend.Controllers.CommentRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Backend.Controllers.AddPublicationsController",
     "Method": "AddPublication",
     "RelativePath": "api/AddPublications",
@@ -32,6 +48,22 @@
         "Name": "request",
         "Type": "Backend.Controllers.UpdatePublicationRequest",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Backend.Controllers.ListCommentController",
+    "Method": "GetComments",
+    "RelativePath": "api/ListComment",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idPublicacion",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

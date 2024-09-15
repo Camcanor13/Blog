@@ -18,9 +18,11 @@
         </select>
       </div>
       <button type="submit" class="border rounded-full bg-zinc-300 px-2 py-1 hover:bg-zinc-500">Registrar</button>
+      <p>¿Ya tienes una cuenta? <router-link to="/">Inicia sesión aquí</router-link></p>
     </form>
-    <p>¿Ya tienes una cuenta? <router-link to="/">Inicia sesión aquí</router-link></p>
   </template>
+    
+    
   
   <script setup>
   import { ref } from 'vue';
