@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center justify-between border border-gray-300 p-4 shadow-md bg-sapphire-blue">
+  <div class="flex items-center justify-between border border-gray-300 px-5 m-0  shadow-md bg-sapphire-blue">
     <!-- Sección de permisos -->
     <div class="flex items-center space-x-4">
       <p class="text-sm text-faint-red font-medium">

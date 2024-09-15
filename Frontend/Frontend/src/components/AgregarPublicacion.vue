@@ -52,7 +52,7 @@ const Agregar = async () => {
 
     if (response.status === 200) {
       alert('Publicación agregada exitosamente.');
-      router.push('/dashboard');
+      router.push('/dashboard/inicio');
     } else {
       alert('Hubo un problema al agregar la publicación.');
     }

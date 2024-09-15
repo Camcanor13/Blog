@@ -4,7 +4,7 @@ import Publicaciones from './src/pages/Mispublicaciones.vue'
 import Moderador from './src/pages/Dashboard.vue';
 import Registro from './src/pages/Registro.vue';
 import Dashboard from './src/pages/Dashboard.vue';
-import Inicio from './src/components/Publicaciones.vue'
+import Inicio from './src/pages/Publicaciones.vue'
 import Perfil from './src/pages/Perfil.vue'
 
 const routes = [
@@ -15,6 +15,7 @@ const routes = [
     children:[
       { path: 'inicio', component:Inicio },
       { path: 'publicaciones', component:Publicaciones }, 
+      { path: 'perfil', component:Perfil }, 
     ]},
 
 ];

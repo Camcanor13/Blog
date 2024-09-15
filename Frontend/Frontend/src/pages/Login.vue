@@ -50,14 +50,6 @@ const login = async () => {
       <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Iniciar sesion
       </h2>
     </div>
-<<<<<<< HEAD
-    <p >¿Aún no estás registrado? <router-link to="/registro">Click Aquí</router-link></p>
-    <button type="submit" class="border rounded-full bg-zinc-300 px-2 py-1 hover:bg-zinc-500">Iniciar sesión</button>
-   
-  </form>
-  
-</template>
-=======
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
       <form class="space-y-6" action="#" method="POST">
         <div>
@@ -93,8 +85,7 @@ const login = async () => {
         to="/registro">Registrate</router-link>
     </p>
   </div>
-</template />
->>>>>>> 131601e96123c19294b1258848fbc46a1bfe9215
+</template >
 
 <style scoped>
 /* Estilos opcionales */

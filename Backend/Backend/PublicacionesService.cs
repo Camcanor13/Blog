@@ -27,9 +27,11 @@ namespace Backend
                     await connection.OpenAsync();
 
                     var query = @"
-                        SELECT p.id, p.title, p.body, p.date, p.coments, p.qualification, p.estado, u.user AS author
-                        FROM publicaciones p
-                        JOIN usuarios u ON p.author = u.id;";
+                SELECT p.id, p.title, p.body, p.date, 
+                       (SELECT COUNT(*) FROM comentarios c WHERE c.id_publicacion = p.id) AS coments, 
+                       p.qualification, p.estado, u.user AS author
+                FROM publicaciones p
+                JOIN usuarios u ON p.author = u.id;";
 
                     using (var command = new MySqlCommand(query, connection))
                     {
@@ -43,7 +45,7 @@ namespace Backend
                                     Title = reader["title"].ToString(),
                                     Body = reader["body"].ToString(),
                                     Date = Convert.ToDateTime(reader["date"]),
-                                    Comments = reader["coments"].ToString(),
+                                    Comments = Convert.ToInt32(reader["coments"]),
                                     Qualification = Convert.ToInt32(reader["qualification"]),
                                     Status = reader["estado"].ToString(),
                                     Author = reader["author"].ToString()
@@ -168,11 +170,95 @@ namespace Backend
             }
         }
 
+        public async Task<string> DeletePublication(int id)
+        {
+            try
+            {
+                using (var connection = new MySqlConnection(_connectionString))
+                {
+                    await connection.OpenAsync();
+
+                    // Verificar si hay comentarios asociados con la publicación
+                    var checkCommentsQuery = "SELECT COUNT(*) FROM comentarios WHERE id_publicacion = @Id";
+                    using (var checkCommentsCommand = new MySqlCommand(checkCommentsQuery, connection))
+                    {
+                        checkCommentsCommand.Parameters.AddWithValue("@Id", id);
+                        var count = Convert.ToInt32(await checkCommentsCommand.ExecuteScalarAsync());
+
+                        if (count > 0)
+                        {
+                            return "No se puede eliminar la publicación porque tiene comentarios asociados.";
+                        }
+                    }
+
+                    // Si no hay comentarios, proceder a eliminar la publicación
+                    var deleteQuery = "DELETE FROM publicaciones WHERE id = @Id";
+                    using (var deleteCommand = new MySqlCommand(deleteQuery, connection))
+                    {
+                        deleteCommand.Parameters.AddWithValue("@Id", id);
+
+                        var rowsAffected = await deleteCommand.ExecuteNonQueryAsync();
+                        if (rowsAffected > 0)
+                        {
+                            return "Eliminación exitosa.";
+                        }
+                        else
+                        {
+                            return "No se encontró la publicación para eliminar.";
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores
+                return "Error al procesar la solicitud. Inténtalo de nuevo más tarde.";
+            }
+        }
+
+        public async Task<string> UpdatePublicationStatus(int id, string newStatus)
+        {
+            try
+            {
+                using (var connection = new MySqlConnection(_connectionString))
+                {
+                    await connection.OpenAsync();
+
+                    // Actualizar solo el estado de la publicación
+                    var updateQuery = "UPDATE publicaciones SET estado = @Status WHERE id = @Id";
+                    using (var updateCommand = new MySqlCommand(updateQuery, connection))
+                    {
+                        updateCommand.Parameters.AddWithValue("@Status", newStatus);
+                        updateCommand.Parameters.AddWithValue("@Id", id);
+
+                        var rowsAffected = await updateCommand.ExecuteNonQueryAsync();
+                        if (rowsAffected > 0)
+                        {
+                            return "Estado actualizado exitosamente.";
+                        }
+                        else
+                        {
+                            return "No se encontró la publicación para actualizar.";
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores
+                return "Error al procesar la solicitud. Inténtalo de nuevo más tarde.";
+            }
+        }
+
+
 
 
     }
 
     //editar publicacion
+
+
+    //elim
 
 
 
@@ -183,7 +269,7 @@ namespace Backend
         public string Title { get; set; }
         public string Body { get; set; }
         public DateTime Date { get; set; }
-        public string Comments { get; set; }
+        public int Comments { get; set; }
         public int Qualification { get; set; }
         public string Status { get; set; }
         public string Author { get; set; }

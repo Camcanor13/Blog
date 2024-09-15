@@ -1,4 +1,5 @@
 <template>
+  <AgregarPublicacion/>
     <div>
         <div v-if="isEditing" >
             <form @submit.prevent="saveChanges" class="fixed  z-10 bg-white border border-black">
@@ -6,10 +7,7 @@
         <input v-model="editPublication.title" type="text" />
         <label>Cuerpo:</label>
         <textarea v-model="editPublication.body"></textarea>
-        <label>Comentarios:</label>
-        <input v-model="editPublication.comments" type="text" />
-        <label>Calificación:</label>
-        <input v-model="editPublication.qualification" type="number" />
+       
         <button type="submit">Guardar Cambios</button>
         <button @click="cancelEdit">Cancelar</button>
       </form>
@@ -27,6 +25,8 @@
           <h3>Comentarios: {{ publication.comments }}</h3>
           <h3>Calificación: {{ publication.qualification }}</h3>
           <button @click="editPublicationHandler(publication)" class="border border-black">Editar Publicación</button>
+          <button @click="deletePublication(publication.id)" class="border border-black">Eliminar</button>
+
 
         </li>
         <p v-if="filteredPublications.length==0">No hay publicaciones Disponibles</p>
@@ -38,10 +38,12 @@
     </div>
   </template>
   
+  
   <script setup>
   import { ref, onMounted, computed } from 'vue';
   import axios from 'axios';
-  
+  import AgregarPublicacion from '../components/AgregarPublicacion.vue';
+
   const publications = ref([]);
   const userName = ref('');
   const isEditing = ref(false);
@@ -56,6 +58,19 @@
       console.error('Error al obtener las publicaciones:', error);
     }
   };
+
+  const deletePublication = async (idpublicacion) => {
+  try {
+    const response = await axios.delete(`/api/DeletePublication/${idpublicacion}`);
+    alert(response.data);
+    console.log(response.data); 
+    imprimir();
+  } catch (error) {
+    alert(error.response.data);
+    console.error(error.response.data);
+
+  }
+};
   
   onMounted(() => {
     imprimir();
