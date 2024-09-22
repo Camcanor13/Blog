@@ -28,6 +28,12 @@
               Mis publicaciones
             </router-link>
           </li>
+          <li v-if="userRol === '3'">
+            <router-link to="/dashboard/lista"
+              class="text-gray-800 hover:text-blue-500 px-3 py-2 rounded-md text-sm font-medium">
+              Listado Me Gusta
+            </router-link>
+          </li>
         </ul>
       </div>
     </div>

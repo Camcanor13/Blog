@@ -34,18 +34,44 @@
           <p class="mt-1 text-gray-600">{{ publication.body }}</p>
           <div class="flex justify-between items-center mt-4">
             <div v-if="selectedPublicationId === publication.id">
+              <h2>Comentarios:</h2>
               <div v-for="coment in comments" :key="coment.id">
-                <h2>Comentarios:</h2>
-                <p>{{ coment.comment }} - comentario realizado por: {{ coment.userName }}</p>
+           
+                <p>{{coment.id}}{{ coment.comment }} - comentario realizado por: {{ coment.userName }}</p>
               </div>
-              <p>Comentar:</p>
+             
               <input v-model="comentario" type="text" placeholder="Deja un comentario" id="comentario" name="comentario" class="p-2 border border-gray-300 rounded-md" />
               <button @click="submitComment(publication.id)" type="submit" class="mt-2 bg-blue-500 text-white px-4 py-2 rounded-md">Enviar</button>
+
+              <p>Calificaciones:</p>
+              <div v-if="califications.length === 0">
+                <p>No hay calificaciones disponibles</p>
+              </div>
+            <div v-for="calificacion in califications" :key="calificacion.id">
+              <p>{{ calificacion.calification }} estrella, realizado por: {{ calificacion.userName }}</p>
+              <button v-if="isOwner(calificacion.userName)" @click="deleteCalification(calificacion.id)">Eliminar</button>
+            </div>
+              <div class="border">
+              <button v-if="isUserLector" @click="submitCalification(publication.id)" type="submit" class="border p-3 bg-green-500 text-white rounded-md">Calificar</button>
+             
+              <select v-if="isUserLector" v-model="selectedCalification">
+                <option value="0">0 estrella (Muy Malo)</option> 
+               <option value="1">1 estrella (Malo)</option> 
+               <option value="2">2 estrella(Regular)</option> 
+               <option value="3">3 estrella (Normal)</option> 
+               <option value="4">4 estrella(Bueno)</option> 
+               <option value="5">5 estrella (Excelente)</option> 
+              </select>
+            </div>
+            <button  v-if="isUserLector" @click="toggleLike(publication.id)" class="bg-purple-600 text-white px-4 py-2 rounded-md">
+              {{ userHasLiked ? 'No me gusta' : 'Me gusta' }}
+            </button>
             </div>
             <div>
               <a class="flex items-center" href="#">
                 <h1 class="text-gray-700 font-bold hover:underline">{{ publication.author }}</h1>
               </a>
+              
             </div>
           </div>
         </li>
@@ -58,6 +84,10 @@
   </div>
 </template>
 
+
+
+
+
 <script setup>
 import { ref, computed, onMounted } from 'vue';
 import axios from 'axios';
@@ -68,8 +98,12 @@ const searchTerm = ref('');
 const filterBy = ref('title');
 const userRol = ref(null);  // Rol del usuario actual
 const selectedPublicationId = ref(null);
-const idUsuario = ref('');  // Asegúrate de asignar el ID del usuario
+const idUsuario = ref('');  
+const usuario = ref(''); // Asegúrate de asignar el ID del usuario
 const comentario = ref('');  // Hacer el campo reactivo
+const selectedCalification = ref(null);
+const califications = ref([]);
+
 
 // Obtener rol del usuario actual
 const getUserRole = () => {
@@ -77,11 +111,22 @@ const getUserRole = () => {
   if (userData) {
     const user = JSON.parse(userData);
     userRol.value = user.rol;  // Asignar rol del usuario
-    idUsuario.value = user.id; // Asegúrate de asignar el ID del usuario
+    idUsuario.value = user.id;
+    usuario.value=user.userName;
+    console.log(usuario.value);
+     // Asegúrate de asignar el ID del usuario
   }
 };
 
+const isOwner = (userName) => {
+  return userName === usuario.value;
+};
 const isUserModerator = computed(() => userRol.value === "2");
+const isUserLector = computed(() => userRol.value === "3");
+const isvisibibleBoton = computed(() => {
+  return calificacion.value.some(calif => calif.userName === usuario.value);
+});
+
 
 const changePublicationStatus = async (idpublicacion) => {
   try {
@@ -128,10 +173,13 @@ const changePublicationStatus = async (idpublicacion) => {
 // Seleccionar publicación y obtener los comentarios
 const selectPublication = (id) => {
   selectedPublicationId.value = id;
+  comments.value = []; // Limpiar comentarios
+  califications.value = []; // Limpiar calificaciones
   imprimirComentarios(id);
+  imprimirCalifications(id);
+ getLikeStatus(id); // Verificar "Me gusta" para la publicación seleccionada
 };
 
-// Obtener comentarios de una publicación específica
 const imprimirComentarios = async (idpublicacion) => {
   try {
     const response = await axios.get(`/api/ListComment?idpublicacion=${idpublicacion}`);
@@ -140,6 +188,19 @@ const imprimirComentarios = async (idpublicacion) => {
     console.error('Error al obtener los comentarios:', error);
   }
 };
+
+// Obtener calificaciones de una publicación específica
+const imprimirCalifications = async (idPublication) => {
+  try {
+    const response = await axios.get(`/api/ListCalification/${idPublication}`);
+    console.log('Calificaciones:', response.data);
+    califications.value = response.data;
+  } catch (error) {
+    console.error('Error al obtener las calificaciones:', error);
+  }
+};
+
+
 
 // Enviar comentario
 const submitComment = async (idpublicacion) => {
@@ -171,11 +232,7 @@ const submitComment = async (idpublicacion) => {
   }
 };
 
-// Obtener publicaciones
-onMounted(() => {
-  getUserRole();  // Actualizar el rol del usuario al montar el componente
-  imprimir();
-});
+
 
 const imprimir = async () => {
   try {
@@ -185,6 +242,14 @@ const imprimir = async () => {
     console.error('Error al obtener las publicaciones:', error);
   }
 };
+
+// Obtener publicaciones
+onMounted(() => {
+  getUserRole();  // Actualizar el rol del usuario al montar el componente
+  imprimir();
+ 
+  
+});
 
 const filteredPublications = computed(() => {
   return publications.value.filter(publication => {
@@ -217,7 +282,109 @@ const formatDate = (dateString) => {
   const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
   return new Date(dateString).toLocaleDateString(undefined, options);
 };
+
+// Enviar calificación
+const submitCalification = async (idpublicacion) => {
+  getUserRole();
+
+  if (!selectedCalification.value) {
+    alert('Por favor selecciona una calificación.');
+    return;
+  }
+
+  try {
+    const response = await axios.post(`/api/AddCalification`, {
+      id_publicacion: idpublicacion,
+      id_usuario: idUsuario.value,
+      calificacion: selectedCalification.value
+    });
+
+    if (response.status === 200) {
+      Swal.fire('Calificación enviada', 'Gracias por tu valoración', 'success');
+      imprimirCalifications(idpublicacion)
+    }
+  } catch (error) {
+    console.error('Error al enviar la calificación:', error.response ? error.response.data : error.message);
+    Swal.fire('Error', `${error.response.data}`, 'error');
+  }
+};
+
+const deleteCalification = async (calificationId) => {
+  try {
+    const response = await axios.delete(`/api/DeleteCalification/${calificationId}`);
+    
+    if (response.status === 200) {
+      Swal.fire('Éxito', 'Calificación eliminada', 'success');
+      // Actualiza la lista de calificaciones después de la eliminación
+      await imprimirCalifications(selectedPublicationId.value);
+    }
+  } catch (error) {
+    console.error('Error al eliminar la calificación:', error.response ? error.response.data : error.message);
+    Swal.fire('Error', 'Error al eliminar la calificación', 'error');
+  }
+};
+
+
+const userHasLiked = ref(false);
+
+const toggleLike = async (publicationId) => {
+  if (userHasLiked.value) {
+    await dislikePublication(publicationId);
+  } else {
+    await likePublication(publicationId);
+  }
+};
+
+const likePublication = async (publicationId) => {
+  try {
+    const response = await axios.post('/api/MeGusta', {
+      publicationId: publicationId,
+      userId: idUsuario.value,
+    });
+    if (response.status === 200) {
+      Swal.fire('Éxito', 'Has dado "Me gusta" a la publicación', 'success');
+      userHasLiked.value = true;
+    }
+  } catch (error) {
+    console.error('Error al dar "Me gusta":', error.response ? error.response.data : error.message);
+    Swal.fire('Error', 'Error al dar "Me gusta"', 'error');
+  }
+};
+
+const dislikePublication = async (publicationId) => {
+  try {
+    const response = await axios.delete(`/api/MeGusta/${publicationId}/${idUsuario.value}`);
+    if (response.status === 200) {
+      Swal.fire('Éxito', 'Has eliminado tu "Me gusta" de la publicación', 'success');
+      userHasLiked.value = false;
+    }
+  } catch (error) {
+    console.error('Error al eliminar "Me gusta":', error.response ? error.response.data : error.message);
+    Swal.fire('Error', 'Error al eliminar "Me gusta"', 'error');
+  }
+};
+const getLikeStatus = async (publicationId) => {
+  try {
+    const response = await axios.get(`/api/MeGusta/publicacion/${publicationId}`);
+    const usersWhoLiked = response.data;
+
+    console.log('Usuarios que han dado me gusta:', usersWhoLiked);
+    console.log('Usuario actual:', usuario.value);
+
+    // Verifica si el nombre de usuario actual está en la lista
+    userHasLiked.value = usersWhoLiked.some(user => user.userName === usuario.value);
+    console.log('Estado de Me gusta:', userHasLiked.value);
+  } catch (error) {
+    console.error('Error al obtener "Me gusta":', error.response ? error.response.data : error.message);
+  }
+};
+
+
+
+
 </script>
+
+
 <style scoped>
 ul {
   list-style-type: none;

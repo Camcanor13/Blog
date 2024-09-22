@@ -24,6 +24,17 @@ builder.Services.AddSingleton<ComentariosService>(provider =>
     var connectionString = builder.Configuration.GetConnectionString("MySqlConnection");
     return new ComentariosService(connectionString);
 });
+builder.Services.AddSingleton<CalificacionesService>(provider =>
+{
+    var connectionString = builder.Configuration.GetConnectionString("MySqlConnection");
+    return new CalificacionesService(connectionString);
+});
+
+builder.Services.AddSingleton<MeGustaService>(provider =>
+{
+    var connectionString = builder.Configuration.GetConnectionString("MySqlConnection");
+    return new MeGustaService(connectionString);
+});
 
 // Configurar Swagger/OpenAPI
 builder.Services.AddEndpointsApiExplorer();
