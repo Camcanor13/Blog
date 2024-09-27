@@ -16,30 +16,33 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `usuarios`
+-- Table structure for table `megusta`
 --
 
-DROP TABLE IF EXISTS `usuarios`;
+DROP TABLE IF EXISTS `megusta`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `usuarios` (
+CREATE TABLE `megusta` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `user` varchar(60) DEFAULT NULL,
-  `password` varchar(60) DEFAULT NULL,
-  `rol` int NOT NULL,
-  `email` varchar(60) DEFAULT NULL,
-  PRIMARY KEY (`id`,`rol`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `id_usuario` int NOT NULL,
+  `id_publicacion` int NOT NULL,
+  `fecha_me_gusta` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `id_usuario` (`id_usuario`),
+  KEY `id_publicacion` (`id_publicacion`),
+  CONSTRAINT `megusta_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`),
+  CONSTRAINT `megusta_ibfk_2` FOREIGN KEY (`id_publicacion`) REFERENCES `publicaciones` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `usuarios`
+-- Dumping data for table `megusta`
 --
 
-LOCK TABLES `usuarios` WRITE;
-/*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'luz','luz1',1,'luz@correo.com'),(2,'carlos','carlos1',2,'carlos@correo.com'),(3,'juanito','juanito1',3,'juanito@correo.com'),(4,'edwar','edwar1',3,'edwar@correo.com'),(5,'lucia','lucia1',1,'lucia@correo.com'),(6,'angela','angela1',1,'angela@correo.com');
-/*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
+LOCK TABLES `megusta` WRITE;
+/*!40000 ALTER TABLE `megusta` DISABLE KEYS */;
+INSERT INTO `megusta` VALUES (24,3,6,'2024-09-22 18:58:12'),(26,3,1,'2024-09-22 19:31:31'),(27,4,3,'2024-09-22 19:37:19');
+/*!40000 ALTER TABLE `megusta` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

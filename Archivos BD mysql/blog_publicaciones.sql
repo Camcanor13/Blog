@@ -34,7 +34,7 @@ CREATE TABLE `publicaciones` (
   PRIMARY KEY (`id`,`coments`),
   KEY `fk_author` (`author`),
   CONSTRAINT `fk_author` FOREIGN KEY (`author`) REFERENCES `usuarios` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +43,7 @@ CREATE TABLE `publicaciones` (
 
 LOCK TABLES `publicaciones` WRITE;
 /*!40000 ALTER TABLE `publicaciones` DISABLE KEYS */;
-INSERT INTO `publicaciones` VALUES (1,'salsa','La música salsa es una mezcla de los sonidos africanos y caribeños. Estos son sonidos como el son, mambo, bomba y plena. Salsa es un término que describe varios estilos rítmicos e instrumentales que se originaron no solo en Puerto Rico, pero también en Cuba, Republica Dominicana, y sí, Los Estados Unidos.','2024-08-24',1,1,'aceptado',1),(2,'jazz','info jazz','2024-06-10',2,2,'bloqueado',2),(3,'bachata','bachata','2024-09-06',1,1,'revision',3),(4,'ponk','genero ponk','2024-07-05',2,2,'revision',4),(5,'cumbia','info del genero cumbia','2020-04-03',2,2,'aceptado',1),(6,'merengue','esta es la informacion de menrengue ','2024-08-25',0,0,'revision',2);
+INSERT INTO `publicaciones` VALUES (1,'Salsa ','musica icono de cali la sucursal del cielo','2024-08-24',7,0,'aceptado',1),(2,'Jazz','Musica tipica de New Orleands','2024-09-02',3,0,'aceptado',5),(3,'bachata','bachata','2024-09-06',0,0,'aceptado',6),(4,'ponk','genero ponk','2024-07-05',0,0,'revision',6),(6,'merengue','esta es la informacion de menrengue ','2024-08-25',1,0,'aceptado',5);
 /*!40000 ALTER TABLE `publicaciones` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -56,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-08-25 15:25:43
+-- Dump completed on 2024-09-22 14:40:01

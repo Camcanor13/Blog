@@ -2,11 +2,11 @@
   <nav class="bg-white shadow-md">
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
       <div class="flex">
-        <img src="../../public/logo.png" class="w-8 h-8 p-1" >
-         <router-link to="/dashboard/inicio">
+        <img src="../../public/logo.png" class="w-8 h-8 p-1">
+        <router-link to="/dashboard/inicio">
           <h1 class="text-xl "><span class="font-bold">La pluma </span>Digital</h1>
-         </router-link>
-       
+        </router-link>
+
       </div>
       <div>
         <ul class="list-none p-0 md:flex md:space-x-4">

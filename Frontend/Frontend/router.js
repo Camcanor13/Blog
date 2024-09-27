@@ -15,9 +15,8 @@ const routes = [
     children:[
       { path: 'inicio', component:Inicio },
       { path: 'publicaciones', component:Publicaciones }, 
-      { path: 'perfil', component:Perfil }, 
+      { path: 'perfil', component:Perfil}, 
     ]},
-
 ];
 
 const router = createRouter({

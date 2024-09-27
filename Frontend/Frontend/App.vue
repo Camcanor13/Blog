@@ -3,6 +3,8 @@
 
 </script>
 <template>
+  <div class="bg-gray-300">
     <router-view></router-view>
-  </template>
-  <style></style>
+  </div>
+</template>
+<style></style>
