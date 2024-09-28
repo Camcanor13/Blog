@@ -67,8 +67,7 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-15T19:30:58.327Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -88,8 +87,7 @@
               "RelativeToolTip": "Backend\\MeGustaService.cs",
               "ViewState": "AgIAALcAAAAAAAAAAADwv9AAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T04:24:35.597Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-21T04:24:35.597Z"
             },
             {
               "$type": "Document",
@@ -125,8 +123,7 @@
               "RelativeToolTip": "Backend\\CalificacionesService.cs",
               "ViewState": "AgIAAJUAAAAAAAAAAAAUwKEAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T03:00:24.102Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-21T03:00:24.102Z"
             },
             {
               "$type": "Document",
@@ -136,7 +133,7 @@
               "RelativeDocumentMoniker": "Backend\\Controllers\\MeGustaController.cs",
               "ToolTip": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\Controllers\\MeGustaController.cs",
               "RelativeToolTip": "Backend\\Controllers\\MeGustaController.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAADwv0QAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAACgAAAAAAAAAAADwvzEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-21T04:27:58.418Z",
               "EditorCaption": ""
@@ -159,8 +156,7 @@
               "RelativeToolTip": "Backend\\ComentariosService.cs",
               "ViewState": "AgIAAAoAAAAAAAAAAAAzwBgAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T03:20:06.054Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-21T03:20:06.054Z"
             },
             {
               "$type": "Document",

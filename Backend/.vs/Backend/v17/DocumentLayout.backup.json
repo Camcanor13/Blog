@@ -67,8 +67,7 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-15T19:30:58.327Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -88,8 +87,7 @@
               "RelativeToolTip": "Backend\\MeGustaService.cs",
               "ViewState": "AgIAALcAAAAAAAAAAADwv9AAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T04:24:35.597Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-21T04:24:35.597Z"
             },
             {
               "$type": "Document",
@@ -125,8 +123,7 @@
               "RelativeToolTip": "Backend\\CalificacionesService.cs",
               "ViewState": "AgIAAJUAAAAAAAAAAAAUwKEAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T03:00:24.102Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-21T03:00:24.102Z"
             },
             {
               "$type": "Document",
@@ -138,16 +135,7 @@
               "RelativeToolTip": "Backend\\Controllers\\MeGustaController.cs",
               "ViewState": "AgIAACgAAAAAAAAAAADwv0QAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T04:27:58.418Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+              "WhenOpened": "2024-09-21T04:27:58.418Z"
             },
             {
               "$type": "Document",
@@ -159,8 +147,7 @@
               "RelativeToolTip": "Backend\\ComentariosService.cs",
               "ViewState": "AgIAAAoAAAAAAAAAAAAzwBgAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T03:20:06.054Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-21T03:20:06.054Z"
             },
             {
               "$type": "Document",
@@ -209,6 +196,14 @@
               "ViewState": "AgIAAK0AAAAAAAAAAAAiwMEAAABQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-15T19:31:33.947Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             }
           ]
         }
