@@ -4,7 +4,7 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Threading.Tasks;
- //NOMBRE DEL PROYECTO
+//NOMBRE DEL PROYECTO
 namespace Backend
 {     //NOMBRE DEL SERVICIO
     public class UsuariosService
@@ -74,9 +74,10 @@ namespace Backend
             }
         }
 
-        public class LoginResponse { 
-             public int Id { get; set; }
-        
+        public class LoginResponse
+        {
+            public int Id { get; set; }
+
             public string UserName { get; set; }
             public string Rol { get; set; }
             public string Email { get; set; }
@@ -165,5 +166,5 @@ namespace Backend
         // Agrega más propiedades según tu esquema de la tabla
     }
 }
-    
+
 

@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllers();
 
-// Agregar la cadena de conexión realizada en el JSON y registrar el servicio UsuariosService
+// Agregar la cadena de conexiï¿½n realizada en el JSON y registrar el servicio UsuariosService
 builder.Services.AddSingleton<UsuariosService>(provider =>
 {
     var connectionString = builder.Configuration.GetConnectionString("MySqlConnection");
@@ -43,12 +43,12 @@ builder.Services.AddSwaggerGen();
 // Configurar CORS
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowSpecificOrigin",
+    options.AddPolicy("AllowAllOrigins",
         builder =>
         {
-            builder.WithOrigins("http://localhost:5173") // Permitir solicitudes desde el origen especificado
+            builder.WithOrigins("*") // Permitir solicitudes desde el origen especificado
                    .AllowAnyHeader()                    // Permitir cualquier encabezado
-                   .AllowAnyMethod();                   // Permitir cualquier método HTTP
+                   .AllowAnyMethod();                   // Permitir cualquier mï¿½todo HTTP
         });
 });
 
@@ -63,8 +63,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// Aplicar la política de CORS
-app.UseCors("AllowSpecificOrigin");
+// Aplicar la polï¿½tica de CORS
+app.UseCors("AllowAllOrigins");
 
 app.UseAuthorization();
 

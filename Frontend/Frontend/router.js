@@ -16,10 +16,13 @@ const routes = [
     children:[
       { path: 'inicio', component:Inicio },
       { path: 'publicaciones', component:Publicaciones }, 
+<<<<<<< HEAD
       { path: 'perfil', component:Perfil }, 
       { path: 'lista', component:Lista }, 
+=======
+      { path: 'perfil', component:Perfil}, 
+>>>>>>> 146a301512d9e8c627b11e53c345fdb20aa38286
     ]},
-
 ];
 
 const router = createRouter({

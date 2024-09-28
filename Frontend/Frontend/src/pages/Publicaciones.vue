@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-6xl mx-auto px-12 py-10 bg-white rounded-lg shadow-md">
+  <div class="max-w-6xl mx-auto px-12 py-10 rounded-lg ">
     <!-- CAMPO PARA BÚSQUEDA -->
     <div class="mb-10">
       <form class="flex items-center justify-between bg-gray-100 p-4 rounded-lg">
@@ -22,15 +22,20 @@
     <div v-if="filteredPublications.length">
       <h1 class="text-2xl font-bold leading-tight md:text-3xl mb-6">Publicaciones:</h1>
       <ul class="space-y-5">
-        <li v-for="publication in filteredPublications" :key="publication.id" class="border border-gray-200 rounded-lg p-5 hover:shadow-lg" @click="selectPublication(publication.id)">
+        <li v-for="publication in filteredPublications" :key="publication.id"
+          class="border border-gray-200 p-5 bg-white rounded-lg shadow-md hover:shadow-lg hover:shadow-gray-500 hover:bg-slate-300 cursor-pointer transition-shadow duration-300 p-6 "
+          @click="selectPublication(publication.id)">
           <div class="flex justify-between items-center">
             <span class="text-sm font-light text-gray-500">{{ formatDate(publication.date) }}</span>
             <span :class="statusClass(publication.status)" class="text-sm font-bold">{{ publication.status }}</span>
             <!-- En el template -->
-<button v-if="isUserModerator" @click.stop="changePublicationStatus(publication.id)" class="bg-yellow-500 text-white px-4 py-2 rounded-md">CAMBIAR ESTADO</button>
+            <button v-if="isUserModerator" @click.stop="changePublicationStatus(publication.id)"
+              class="px-4 py-2 bg-cyan-400 text-dark font-bold  rounded-md hover:bg-yellow-600 hover:text-white ">CAMBIAR
+              ESTADO</button>
 
           </div>
-          <a class="mt-2 block text-2xl text-gray-800 font-semibold hover:text-gray-600" href="#">{{ publication.title }}</a>
+          <a class="mt-2 block text-2xl text-gray-800 font-semibold hover:text-gray-600" href="#">{{ publication.title
+            }}</a>
           <p class="mt-1 text-gray-600">{{ publication.body }}</p>
           <div class="flex justify-between items-center mt-4">
             <div v-if="selectedPublicationId === publication.id">
@@ -39,6 +44,7 @@
            
                 <p>{{coment.id}}{{ coment.comment }} - comentario realizado por: {{ coment.userName }}</p>
               </div>
+<<<<<<< HEAD
              
               <input v-model="comentario" type="text" placeholder="Deja un comentario" id="comentario" name="comentario" class="p-2 border border-gray-300 rounded-md" />
               <button @click="submitComment(publication.id)" type="submit" class="mt-2 bg-blue-500 text-white px-4 py-2 rounded-md">Enviar</button>
@@ -66,6 +72,13 @@
             <button  v-if="isUserLector" @click="toggleLike(publication.id)" class="bg-purple-600 text-white px-4 py-2 rounded-md">
               {{ userHasLiked ? 'No me gusta' : 'Me gusta' }}
             </button>
+=======
+              <p>Comentar:</p>
+              <input v-model="comentario" type="text" placeholder="Deja un comentario" id="comentario" name="comentario"
+                class="p-2 border border-gray-300 rounded-md" />
+              <button @click="submitComment(publication.id)" type="submit"
+                class="mt-2 bg-blue-500 text-white px-4 py-2 rounded-md">Enviar</button>
+>>>>>>> 146a301512d9e8c627b11e53c345fdb20aa38286
             </div>
             <div>
               <a class="flex items-center" href="#">
@@ -98,8 +111,12 @@ const searchTerm = ref('');
 const filterBy = ref('title');
 const userRol = ref(null);  // Rol del usuario actual
 const selectedPublicationId = ref(null);
+<<<<<<< HEAD
 const idUsuario = ref('');  
 const usuario = ref(''); // Asegúrate de asignar el ID del usuario
+=======
+const idUsuario = ref(''); // Asegúrate de asignar el ID del usuario
+>>>>>>> 146a301512d9e8c627b11e53c345fdb20aa38286
 const comentario = ref('');  // Hacer el campo reactivo
 const selectedCalification = ref(null);
 const califications = ref([]);
@@ -128,6 +145,8 @@ const isvisibibleBoton = computed(() => {
 });
 
 
+
+// Cambiar de estado
 const changePublicationStatus = async (idpublicacion) => {
   try {
     const { value: newStatus } = await Swal.fire({
@@ -266,7 +285,7 @@ const filteredPublications = computed(() => {
     }
 
     // Verificar visibilidad según el rol del usuario
-    const isVisible = !(userRol.value === "1" || userRol.value === "3") || publication.status !== "bloqueado" && publication.status!=="revision";
+    const isVisible = !(userRol.value === "1" || userRol.value === "3") || publication.status !== "bloqueado" && publication.status !== "revision";
 
     return matchesSearch && isVisible;
   });
@@ -274,7 +293,7 @@ const filteredPublications = computed(() => {
 
 // Asignar clases de estado a las publicaciones
 const statusClass = (status) => {
-  return `px-3 py-1 ${status === 'bloqueado' ? 'bg-red-500' : 'bg-gray-500'} text-white font-bold rounded-none`;
+  return `px-3 py-1 ${status === 'bloqueado' ? 'inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10' : 'inline-flex items-center rounded-md bg-gray-100 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10'} font-bold rounded italic text-base`;
 };
 
 // Formatear la fecha

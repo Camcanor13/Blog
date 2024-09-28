@@ -16,30 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `usuarios`
+-- Table structure for table `comentarios`
 --
 
-DROP TABLE IF EXISTS `usuarios`;
+DROP TABLE IF EXISTS `comentarios`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `usuarios` (
+CREATE TABLE `comentarios` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `user` varchar(60) DEFAULT NULL,
-  `password` varchar(60) DEFAULT NULL,
-  `rol` int NOT NULL,
-  `email` varchar(60) DEFAULT NULL,
-  PRIMARY KEY (`id`,`rol`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `id_publicacion` int NOT NULL,
+  `id_usuario` int NOT NULL,
+  `comentario` varchar(500) NOT NULL,
+  PRIMARY KEY (`id`,`id_publicacion`,`id_usuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `usuarios`
+-- Dumping data for table `comentarios`
 --
 
-LOCK TABLES `usuarios` WRITE;
-/*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'luz','luz1',1,'luz@correo.com'),(2,'carlos','carlos1',2,'carlos@correo.com'),(3,'juanito','juanito1',3,'juanito@correo.com'),(4,'edwar','edwar1',3,'edwar@correo.com'),(5,'lucia','lucia1',1,'lucia@correo.com'),(6,'angela','angela1',1,'angela@correo.com');
-/*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
+LOCK TABLES `comentarios` WRITE;
+/*!40000 ALTER TABLE `comentarios` DISABLE KEYS */;
+INSERT INTO `comentarios` VALUES (1,1,4,'comentario 1'),(2,1,5,'comentario 2'),(3,2,5,'holaaa'),(4,2,5,'holaaa'),(5,3,4,'publicacion 3'),(6,2,4,'comentario publicacion X'),(7,1,1,''),(8,1,1,'ssss'),(9,6,1,'zumbalo'),(10,1,1,'ddd'),(11,1,4,'comentario6'),(12,1,1,'hnkkkk');
+/*!40000 ALTER TABLE `comentarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
