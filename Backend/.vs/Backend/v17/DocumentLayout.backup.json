@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{CC8CE3F0-2BE7-4FAC-AFFD-6E70406D92A7}|Backend\\Backend.csproj|c:\\users\\luzaf\\onedrive\\escritorio\\lenguaje\\blog\\backend\\backend\\publicacionesservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CC8CE3F0-2BE7-4FAC-AFFD-6E70406D92A7}|Backend\\Backend.csproj|solutionrelative:backend\\publicacionesservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CC8CE3F0-2BE7-4FAC-AFFD-6E70406D92A7}|Backend\\Backend.csproj|c:\\users\\luzaf\\onedrive\\escritorio\\lenguaje\\blog\\backend\\backend\\controllers\\megustacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CC8CE3F0-2BE7-4FAC-AFFD-6E70406D92A7}|Backend\\Backend.csproj|solutionrelative:backend\\controllers\\megustacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -39,10 +43,6 @@
       "RelativeMoniker": "D:0:0:{CC8CE3F0-2BE7-4FAC-AFFD-6E70406D92A7}|Backend\\Backend.csproj|solutionrelative:backend\\controllers\\addcalificationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CC8CE3F0-2BE7-4FAC-AFFD-6E70406D92A7}|Backend\\Backend.csproj|c:\\users\\luzaf\\onedrive\\escritorio\\lenguaje\\blog\\backend\\backend\\publicacionesservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC8CE3F0-2BE7-4FAC-AFFD-6E70406D92A7}|Backend\\Backend.csproj|solutionrelative:backend\\publicacionesservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CC8CE3F0-2BE7-4FAC-AFFD-6E70406D92A7}|Backend\\Backend.csproj|c:\\users\\luzaf\\onedrive\\escritorio\\lenguaje\\blog\\backend\\backend\\controllers\\statuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CC8CE3F0-2BE7-4FAC-AFFD-6E70406D92A7}|Backend\\Backend.csproj|solutionrelative:backend\\controllers\\statuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -54,11 +54,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "DeletePublicationController.cs",
               "DocumentMoniker": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\Controllers\\DeletePublicationController.cs",
               "RelativeDocumentMoniker": "Backend\\Controllers\\DeletePublicationController.cs",
@@ -78,20 +78,12 @@
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MeGustaService.cs",
-              "DocumentMoniker": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\MeGustaService.cs",
-              "RelativeDocumentMoniker": "Backend\\MeGustaService.cs",
-              "ToolTip": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\MeGustaService.cs",
-              "RelativeToolTip": "Backend\\MeGustaService.cs",
-              "ViewState": "AgIAALcAAAAAAAAAAADwv9AAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T04:24:35.597Z"
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "DeleteCalificationController.cs",
               "DocumentMoniker": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\Controllers\\DeleteCalificationController.cs",
               "RelativeDocumentMoniker": "Backend\\Controllers\\DeleteCalificationController.cs",
@@ -103,7 +95,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\Program.cs",
               "RelativeDocumentMoniker": "Backend\\Program.cs",
@@ -115,7 +107,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "CalificacionesService.cs",
               "DocumentMoniker": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\CalificacionesService.cs",
               "RelativeDocumentMoniker": "Backend\\CalificacionesService.cs",
@@ -127,19 +119,48 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MeGustaController.cs",
               "DocumentMoniker": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\Controllers\\MeGustaController.cs",
               "RelativeDocumentMoniker": "Backend\\Controllers\\MeGustaController.cs",
               "ToolTip": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\Controllers\\MeGustaController.cs",
               "RelativeToolTip": "Backend\\Controllers\\MeGustaController.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAADwv0QAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAACgAAAAAAAAAAADwvzEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-21T04:27:58.418Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
+              "Title": "PublicacionesService.cs",
+              "DocumentMoniker": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\PublicacionesService.cs",
+              "RelativeDocumentMoniker": "Backend\\PublicacionesService.cs",
+              "ToolTip": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\PublicacionesService.cs",
+              "RelativeToolTip": "Backend\\PublicacionesService.cs",
+              "ViewState": "AgIAAGQAAAAAAAAAAAAAALIAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T19:31:33.947Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MeGustaService.cs",
+              "DocumentMoniker": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\MeGustaService.cs",
+              "RelativeDocumentMoniker": "Backend\\MeGustaService.cs",
+              "ToolTip": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\MeGustaService.cs",
+              "RelativeToolTip": "Backend\\MeGustaService.cs",
+              "ViewState": "AgIAALcAAAAAAAAAAADwv9AAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-21T04:24:35.597Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "ComentariosService.cs",
               "DocumentMoniker": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\ComentariosService.cs",
               "RelativeDocumentMoniker": "Backend\\ComentariosService.cs",
@@ -151,7 +172,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "ListCalificationControllers.cs",
               "DocumentMoniker": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\Controllers\\ListCalificationControllers.cs",
               "RelativeDocumentMoniker": "Backend\\Controllers\\ListCalificationControllers.cs",
@@ -163,7 +184,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "AddCalificationController.cs",
               "DocumentMoniker": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\Controllers\\AddCalificationController.cs",
               "RelativeDocumentMoniker": "Backend\\Controllers\\AddCalificationController.cs",
@@ -184,26 +205,6 @@
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-15T22:37:02.517Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "PublicacionesService.cs",
-              "DocumentMoniker": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\PublicacionesService.cs",
-              "RelativeDocumentMoniker": "Backend\\PublicacionesService.cs",
-              "ToolTip": "C:\\Users\\luzaf\\OneDrive\\Escritorio\\lenguaje\\Blog\\Backend\\Backend\\PublicacionesService.cs",
-              "RelativeToolTip": "Backend\\PublicacionesService.cs",
-              "ViewState": "AgIAAK0AAAAAAAAAAAAiwMEAAABQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-15T19:31:33.947Z"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             }
           ]
         }

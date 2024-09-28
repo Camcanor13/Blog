@@ -44,7 +44,6 @@
            
                 <p>{{coment.id}}{{ coment.comment }} - comentario realizado por: {{ coment.userName }}</p>
               </div>
-<<<<<<< HEAD
              
               <input v-model="comentario" type="text" placeholder="Deja un comentario" id="comentario" name="comentario" class="p-2 border border-gray-300 rounded-md" />
               <button @click="submitComment(publication.id)" type="submit" class="mt-2 bg-blue-500 text-white px-4 py-2 rounded-md">Enviar</button>
@@ -72,13 +71,6 @@
             <button  v-if="isUserLector" @click="toggleLike(publication.id)" class="bg-purple-600 text-white px-4 py-2 rounded-md">
               {{ userHasLiked ? 'No me gusta' : 'Me gusta' }}
             </button>
-=======
-              <p>Comentar:</p>
-              <input v-model="comentario" type="text" placeholder="Deja un comentario" id="comentario" name="comentario"
-                class="p-2 border border-gray-300 rounded-md" />
-              <button @click="submitComment(publication.id)" type="submit"
-                class="mt-2 bg-blue-500 text-white px-4 py-2 rounded-md">Enviar</button>
->>>>>>> 146a301512d9e8c627b11e53c345fdb20aa38286
             </div>
             <div>
               <a class="flex items-center" href="#">
@@ -111,12 +103,8 @@ const searchTerm = ref('');
 const filterBy = ref('title');
 const userRol = ref(null);  // Rol del usuario actual
 const selectedPublicationId = ref(null);
-<<<<<<< HEAD
 const idUsuario = ref('');  
 const usuario = ref(''); // Asegúrate de asignar el ID del usuario
-=======
-const idUsuario = ref(''); // Asegúrate de asignar el ID del usuario
->>>>>>> 146a301512d9e8c627b11e53c345fdb20aa38286
 const comentario = ref('');  // Hacer el campo reactivo
 const selectedCalification = ref(null);
 const califications = ref([]);
