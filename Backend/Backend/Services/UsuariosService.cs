@@ -5,7 +5,7 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Threading.Tasks;
 //NOMBRE DEL PROYECTO
-namespace Backend
+namespace Backend.Services
 {     //NOMBRE DEL SERVICIO
     public class UsuariosService
     {

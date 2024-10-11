@@ -4,7 +4,7 @@ using System.Collections.Generic; // Para List y IEnumerable
 using System.Data;
 using System.Threading.Tasks;
 
-namespace Backend
+namespace Backend.Services
 {
     public class CalificacionesService
     {

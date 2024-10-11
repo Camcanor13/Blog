@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Backend
+namespace Backend.Services
 {
     public class PublicacionesService
     {
