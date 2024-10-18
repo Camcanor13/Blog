@@ -1,6 +1,6 @@
 <template>
     <section class="flex flex-wrap py-2">
-        <article class="p-2 sm:w-1/4 border-r border-gray rounded-md" >
+        <article class="p-2 sm:w-1/4 border-r border-gray rounded-md" v-if="props.userType" >
             <StarCalifications @updateRating="obtenerCalificacion" :rating="miCalificacion" />
             <h3 class="text-sm font-medium text-gray-700 sm:mt-1 text-right">&mdash;yo</h3>
         </article>
@@ -29,6 +29,9 @@ const props = defineProps({
     },userName:{
         type: String,
         required: true,
+    },userType:{
+        type:Boolean,
+        required:true
     }
 });
 onMounted(() => {
