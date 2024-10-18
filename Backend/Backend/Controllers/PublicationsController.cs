@@ -13,10 +13,10 @@ namespace Backend.Controllers
 
         public PublicationsController(PublicacionesService publicacionesService)
         {
-            _publicacionesService = publicacionesService; // Asignar el servicio al campo privado
+            _publicacionesService = publicacionesService; 
         }
 
-        // GET: api/Publications
+        // Get publicaciones
         [HttpGet]
         public async Task<IActionResult> GetPublications()
         {
@@ -27,12 +27,11 @@ namespace Backend.Controllers
             }
             catch (Exception ex)
             {
-                // Manejo de errores
-                return StatusCode(500, "Error al procesar la solicitud.");
+                return StatusCode(500, "Error");
             }
         }
 
-        // POST: api/Publications
+        //Post publicaciones
         [HttpPost]
         public async Task<IActionResult> AddPublication([FromBody] PublicationRequest request)
         {
@@ -56,7 +55,7 @@ namespace Backend.Controllers
             }
         }
 
-        // DELETE: api/Publications/{id}
+        // Delete publicaciones
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePublication(int id)
         {
@@ -76,7 +75,7 @@ namespace Backend.Controllers
             }
         }
 
-        // PUT: api/Publications/{id}
+        //Put publicaciones
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdatePublication(int id, [FromBody] UpdatePublicationRequest request)
         {
@@ -110,7 +109,7 @@ namespace Backend.Controllers
             }
         }
 
-        // PUT: api/Publications/UpdateStatus/{id}
+        // Put estado de publicaciones
         [HttpPut("UpdateStatus/{id}")]
         public async Task<IActionResult> UpdateStatus(int id, [FromBody] UpdateStatusRequest request)
         {
@@ -132,7 +131,6 @@ namespace Backend.Controllers
         }
     }
 
-    // Clase de solicitud para agregar o actualizar una publicación
     public class PublicationRequest
     {
         public string Title { get; set; }
@@ -144,7 +142,6 @@ namespace Backend.Controllers
         public int Author { get; set; }
     }
 
-    // Clase de solicitud para actualizar la publicación
     public class UpdatePublicationRequest
     {
         public string Title { get; set; }
@@ -154,8 +151,6 @@ namespace Backend.Controllers
         public int Qualification { get; set; }
         public string Status { get; set; }
     }
-
-    // Clase de solicitud para actualizar el estado de la publicación
     public class UpdateStatusRequest
     {
         public string NewStatus { get; set; }

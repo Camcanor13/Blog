@@ -24,15 +24,13 @@ namespace Backend.Controllers
             {
                 return BadRequest("Datos del comentario inválidos.");
             }
-
-            // Llamar al servicio para agregar el comentario
             var result = await _comentariosService.AddComment(
                 request.id_publicacion,
                 request.id_usuario,
                 request.comentario
             );
 
-            if (result == "Comentario agregado exitosamente.")
+            if (result == "Comentario agregado exitosamente :)")
             {
                 return Ok(result);
             }
@@ -48,14 +46,12 @@ namespace Backend.Controllers
         {
             try
             {
-                // Llamar al servicio para obtener los comentarios filtrados por idPublicacion
                 var comments = await _comentariosService.GetCommentsByPublication(idPublicacion);
                 return Ok(comments);
             }
             catch (Exception ex)
             {
-                // Manejo de errores
-                return StatusCode(500, $"Error al procesar la solicitud: {ex.Message}");
+                return StatusCode(500, $"Error: {ex.Message}");
             }
         }
     }

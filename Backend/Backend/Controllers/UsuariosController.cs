@@ -16,7 +16,7 @@ namespace Backend.Controllers
             _usuariosService = usuariosService;
         }
 
-        // Método para iniciar sesión
+        //Login
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequest request)
         {
@@ -35,11 +35,10 @@ namespace Backend.Controllers
             }
         }
 
-        // Método para registrar un nuevo usuario
+        //Register
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterRequest request)
         {
-            // Validación básica de entrada
             if (request == null || string.IsNullOrEmpty(request.Email) || string.IsNullOrEmpty(request.Password) || string.IsNullOrEmpty(request.User) || string.IsNullOrEmpty(request.Rol))
             {
                 return BadRequest("Todos los campos son obligatorios.");
@@ -56,7 +55,7 @@ namespace Backend.Controllers
             }
         }
 
-        // Método para obtener todos los usuarios
+        //Listar usuarios
         [HttpGet("list")]
         public ActionResult<IEnumerable<Usuario>> GetUsuarios()
         {
@@ -64,13 +63,11 @@ namespace Backend.Controllers
             return Ok(usuarios);
         }
     }
-
     public class LoginRequest
     {
         public string Email { get; set; }
         public string Password { get; set; }
     }
-
     public class RegisterRequest
     {
         public string Email { get; set; }

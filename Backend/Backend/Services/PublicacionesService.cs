@@ -249,14 +249,6 @@ namespace Backend.Services
 
     }
 
-    //editar publicacion
-
-
-    //elim
-
-
-
-
     public class Publication
     {
         public int Id { get; set; }

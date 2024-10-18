@@ -13,7 +13,7 @@ const router = useRouter();
 const login = async () => {
   try {
 
-    const response = await axios.post('/api/Login', {
+    const response = await axios.post('/api/Usuarios/Login', {
       email: email.value,
       password: password.value,
     });
@@ -37,7 +37,7 @@ const login = async () => {
     }
   } catch (error) {
     console.error('Error al iniciar sesión:', error);
-    alert(error.response.data);
+    alert(error.response);
   }
 };
 </script>
@@ -46,7 +46,7 @@ const login = async () => {
 
   <div @submit.prevent="login" class="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-      <img class="mx-auto h-10 w-auto" src="@/assets/vue.svg" alt="Your Company" />
+      <img class="mx-auto h-10 w-auto" src="../../public/logo.png" alt="Your Company" />
       <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Iniciar sesion
       </h2>
     </div>

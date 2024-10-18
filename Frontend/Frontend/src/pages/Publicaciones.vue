@@ -302,7 +302,7 @@ const changePublicationStatus = async (idpublicacion) => {
     });
 
     if (newStatus) {
-      const response = await axios.put(`/api/Status/UpdateStatus/${idpublicacion}`, {
+      const response = await axios.put(`/api/Publications/UpdateStatus/${idpublicacion}`, {
         newStatus: newStatus
       }, {
         headers: {
