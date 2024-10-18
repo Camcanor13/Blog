@@ -4,8 +4,8 @@ import axios from 'axios';
 import router from '../router.js'; // Importa el archivo de rutas
 
 // Configuración global de Axios
-axios.defaults.baseURL = 'https://localhost:7079';
-//axios.defaults.baseURL = "https://implementing-jp-dana-whose.trycloudflare.com"
+//axios.defaults.baseURL = 'https://localhost:7079';
+axios.defaults.baseURL = "https://paths-socks-browser-shepherd.trycloudflare.com"
 
 const app = createApp(App);
 

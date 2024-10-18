@@ -1,13 +1,17 @@
 <template>
-  <form @submit.prevent="Agregar" class="border rounded-md p-4">
+<section class="flex justify-center py-8">
+  <form @submit.prevent="Agregar" class=" rounded-md p-4 w-10/12">
     <label>Título:</label>
     <input v-model="title" type="text" placeholder="Ingrese el título" class="block w-full border  rounded-lg border-black mb-2 p-2">
 
     <label>Cuerpo:</label>
-    <textarea v-model="body" placeholder="Información de la publicación" class="block w-full border rounded-lg border-black mb-2 p-2"></textarea>
+    <textarea v-model="body" placeholder="Información de la publicación" class="block w-full border rounded-lg border-black mb-2 p-2 lg:h-[50vh] h-[40vh]"></textarea>
 
-    <button type="submit" class="bg-blue-500 text-white p-2 rounded">Agregar</button>
+   <div class="flex justify-center w-full">
+    <button type="submit" class="bg-blue-500 text-white p-2 rounded px-4">Agregar</button>
+   </div>
   </form>
+</section>
 </template>
 
 
