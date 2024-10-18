@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-
 namespace Backend.Controllers
 {
     [Route("api/[controller]")]
@@ -26,7 +25,6 @@ namespace Backend.Controllers
                 return BadRequest("Datos de calificación inválidos.");
             }
 
-            // Llamar al servicio para agregar la calificación
             var result = await _calificacionesService.AddCalification(
                 request.id_publicacion,
                 request.id_usuario,
@@ -68,7 +66,6 @@ namespace Backend.Controllers
                 return BadRequest("El id de la publicación no es válido.");
             }
 
-            // Llamar al servicio para obtener las calificaciones
             IEnumerable<CalificationResult> califications = await _calificacionesService.GetCalificationsByPublication(postId);
 
             if (califications == null || !califications.Any())

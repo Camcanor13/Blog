@@ -13,6 +13,7 @@ public class ComentariosService
         _connectionString = connectionString;
     }
 
+    //Add comentario
     public async Task<string> AddComment(int postId, int userId, string comment)
     {
         try
@@ -20,8 +21,6 @@ public class ComentariosService
             using (var connection = new MySqlConnection(_connectionString))
             {
                 await connection.OpenAsync();
-
-                // Insertar el nuevo comentario
                 var insertQuery = "INSERT INTO comentarios (id_publicacion, id_usuario, comentario) VALUES (@PostId, @UserId, @Comment)";
                 using (var insertCommand = new MySqlCommand(insertQuery, connection))
                 {
@@ -37,10 +36,10 @@ public class ComentariosService
         }
         catch (Exception ex)
         {
-            // Manejo de errores
             return $"Error al procesar la solicitud: {ex.Message}";
         }
     }
+    //obtener comentarios por publicacion
     public async Task<IEnumerable<CommentResult>> GetCommentsByPublication(int postId)
     {
         var comments = new List<CommentResult>();
@@ -50,8 +49,6 @@ public class ComentariosService
             using (var connection = new MySqlConnection(_connectionString))
             {
                 await connection.OpenAsync();
-
-                // Consulta SQL para obtener los comentarios filtrados por postId
                 var query = @"
                     SELECT c.comentario, u.user
                     FROM comentarios c
@@ -78,16 +75,12 @@ public class ComentariosService
         }
         catch (Exception ex)
         {
-            // Manejo de errores
-            // Considera registrar el error en un log aquí
             throw new Exception($"Error al obtener los comentarios: {ex.Message}");
         }
 
         return comments;
     }
 }
-
-// Clase para el resultado de la consulta
 public class CommentResult
 {
     public string Comment { get; set; }

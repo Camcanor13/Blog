@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic; // Para List y IEnumerable
+using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
 public class MeGustaService
@@ -63,8 +63,6 @@ public class MeGustaService
             using (var connection = new MySqlConnection(_connectionString))
             {
                 await connection.OpenAsync();
-
-                // Verificar si ya existe un me gusta para la publicación y el usuario
                 var checkQuery = "SELECT COUNT(*) FROM megusta WHERE id_publicacion = @PublicationId AND id_usuario = @UserId";
                 using (var checkCommand = new MySqlCommand(checkQuery, connection))
                 {
@@ -77,8 +75,6 @@ public class MeGustaService
                         return "El usuario ya ha dado me gusta a esta publicación.";
                     }
                 }
-
-                // Insertar el nuevo me gusta
                 var insertQuery = "INSERT INTO megusta (id_publicacion, id_usuario) VALUES (@PublicationId, @UserId)";
                 using (var insertCommand = new MySqlCommand(insertQuery, connection))
                 {
@@ -110,7 +106,6 @@ public class MeGustaService
             {
                 await connection.OpenAsync();
 
-                // Verificar si el me gusta existe
                 var checkQuery = "SELECT COUNT(*) FROM megusta WHERE id_publicacion = @PublicationId AND id_usuario = @UserId";
                 using (var checkCommand = new MySqlCommand(checkQuery, connection))
                 {
@@ -124,7 +119,6 @@ public class MeGustaService
                     }
                 }
 
-                // Eliminar el me gusta
                 var deleteQuery = "DELETE FROM megusta WHERE id_publicacion = @PublicationId AND id_usuario = @UserId";
                 using (var deleteCommand = new MySqlCommand(deleteQuery, connection))
                 {
@@ -146,8 +140,7 @@ public class MeGustaService
             return $"Error inesperado: {ex.Message}";
         }
     }
-
-
+    //metodo para traer las publicaciones a las que se les ha dado me gusta
     public async Task<IEnumerable<PublicacionMeGustaResult>> GetPublicacionesMeGusta(int userId)
     {
         var publicaciones = new List<PublicacionMeGustaResult>();
@@ -159,11 +152,11 @@ public class MeGustaService
                 await connection.OpenAsync();
 
                 var query = @"
-            SELECT p.title, p.body, p.date, u.user as author
-            FROM megusta mg
-            JOIN publicaciones p ON mg.id_publicacion = p.id
-            JOIN usuarios u ON p.author = u.id
-            WHERE mg.id_usuario = @UserId";
+                    SELECT p.title, p.body, p.date, u.user as author
+                    FROM megusta mg
+                    JOIN publicaciones p ON mg.id_publicacion = p.id
+                    JOIN usuarios u ON p.author = u.id
+                    WHERE mg.id_usuario = @UserId";
 
                 using (var command = new MySqlCommand(query, connection))
                 {

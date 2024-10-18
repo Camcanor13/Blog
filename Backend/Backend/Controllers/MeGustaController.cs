@@ -14,7 +14,7 @@ namespace Backend.Controllers
             _meGustaService = meGustaService;
         }
 
-        // Obtener los me gusta de una publicación
+        // Get me gusta
         [HttpGet]
         [Route("publicacion/{publicationId}")]
         public async Task<ActionResult<IEnumerable<MeGustaResult>>> GetMeGustaByPublication(int publicationId)
@@ -23,14 +23,14 @@ namespace Backend.Controllers
             return Ok(result);
         }
 
-        // Agregar un me gusta
+        // Add me gusta
         [HttpPost]
         public async Task<ActionResult<string>> AddMeGusta([FromBody] MeGustaModel model)
         {
             return await _meGustaService.AddMeGusta(model.PublicationId, model.UserId);
         }
 
-        // Eliminar un me gusta
+        // Eliminar me gusta
         [HttpDelete]
         [Route("{publicationId}/{userId}")]
         public async Task<ActionResult<string>> DeleteMeGusta(int publicationId, int userId)

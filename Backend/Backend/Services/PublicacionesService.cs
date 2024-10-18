@@ -15,7 +15,7 @@ namespace Backend.Services
         {
             _connectionString = connectionString;
         }
-
+        //Get publicaciones
         public async Task<List<Publication>> GetPublicationsAsync()
         {
             var publications = new List<Publication>();
@@ -59,13 +59,12 @@ namespace Backend.Services
             }
             catch (Exception ex)
             {
-                // Manejo de errores
                 throw new Exception("Error al obtener publicaciones", ex);
             }
 
             return publications;
         }
-
+        //Add publicacion
         public async Task<string> AddPublication(string title, string body, DateTime date, int comments, int qualification, string status, int author)
         {
             try
@@ -74,7 +73,7 @@ namespace Backend.Services
                 {
                     await connection.OpenAsync();
 
-                    // Verificar si el título ya está registrado
+                   
                     var checkQuery = "SELECT COUNT(*) FROM publicaciones WHERE title = @Title";
                     using (var checkCommand = new MySqlCommand(checkQuery, connection))
                     {
@@ -87,7 +86,6 @@ namespace Backend.Services
                         }
                     }
 
-                    // Insertar la nueva publicación
                     var insertQuery = "INSERT INTO publicaciones (title, body, date, coments, qualification, estado, author) VALUES (@Title, @Body, @Date, @Comments, @Qualification, @Status, @Author)";
                     using (var insertCommand = new MySqlCommand(insertQuery, connection))
                     {
@@ -107,13 +105,11 @@ namespace Backend.Services
             }
             catch (Exception ex)
             {
-                // Manejo de errores
+            
                 return "Error al procesar la solicitud. Inténtalo de nuevo más tarde.";
             }
         }
-
-
-
+        //Actualizar publicacion
         public async Task<string> UpdatePublication(int id, string title, string body, DateTime date, int comments, int qualification, string status)
         {
             try
@@ -122,7 +118,7 @@ namespace Backend.Services
                 {
                     await connection.OpenAsync();
 
-                    // Verificar si el título ya está registrado para otra publicación
+                   
                     var checkQuery = "SELECT COUNT(*) FROM publicaciones WHERE title = @Title AND id != @Id";
                     using (var checkCommand = new MySqlCommand(checkQuery, connection))
                     {
@@ -136,11 +132,11 @@ namespace Backend.Services
                         }
                     }
 
-                    // Actualizar la publicación existente
+                    //Consulta para actualizacion
                     var updateQuery = @"
-                UPDATE publicaciones
-                SET title = @Title, body = @Body, date = @Date, coments = @Comments, qualification = @Qualification, estado = @Status
-                WHERE id = @Id";
+                        UPDATE publicaciones
+                        SET title = @Title, body = @Body, date = @Date, coments = @Comments, qualification = @Qualification, estado = @Status
+                        WHERE id = @Id";
                     using (var updateCommand = new MySqlCommand(updateQuery, connection))
                     {
                         updateCommand.Parameters.AddWithValue("@Title", title);
@@ -165,11 +161,10 @@ namespace Backend.Services
             }
             catch (Exception ex)
             {
-                // Manejo de errores
                 return "Error al procesar la solicitud. Inténtalo de nuevo más tarde.";
             }
         }
-
+        //Eliminar publicacion
         public async Task<string> DeletePublication(int id)
         {
             try
@@ -211,7 +206,6 @@ namespace Backend.Services
             }
             catch (Exception ex)
             {
-                // Manejo de errores
                 return "Error al procesar la solicitud. Inténtalo de nuevo más tarde.";
             }
         }
