@@ -1,13 +1,13 @@
 <template>
   <AgregarPublicacion/>
   <div>
-    <div v-if="isEditing">
+    <section v-if="isEditing" class="w-full">
       <form @submit.prevent="saveChanges" class="fixed z-10 bg-white border border-black p-4">
         <label>Título:</label>
-        <input v-model="editPublication.title" type="text" />
+        <input v-model="editPublication.title" type="text" class="border rounded-lg border-sm" />
         
         <label>Cuerpo:</label>
-        <textarea v-model="editPublication.body"></textarea>
+        <textarea v-model="editPublication.body" class="border rounded-lg border-sm"></textarea>
 
         <!-- Mostrar selector de estado solo si la publicación está bloqueada -->
         <div v-if="editPublication.status === 'bloqueado'">
@@ -21,10 +21,10 @@
         <button type="submit">Guardar Cambios</button>
         <button @click="cancelEdit">Cancelar</button>
       </form>
-    </div>
+    </section>
 
-    <ul>
-      <li v-for="publication in filteredPublications" :key="publication.id" class="border-y border-y-black p-5">
+    <ul class="grid md:grid-cols-3 sm:grid-cols-2 gap-3 p-3">
+      <li v-for="publication in filteredPublications" :key="publication.id" class="border rounded-lg border-black p-5  grid gap-1">
         <h2>Título: {{ publication.title }}</h2>
         <h3>Autor: {{ publication.author }}</h3>  
         <h3>Fecha de Publicación: {{ formatDate(publication.date) }}</h3>
@@ -32,8 +32,10 @@
         <p>{{ publication.body }}</p>
         <h3>Comentarios: {{ publication.comments }}</h3>
         <h3>Calificación: {{ publication.qualification }}</h3>
-        <button @click="editPublicationHandler(publication)" class="border border-black">Editar Publicación</button>
-        <button @click="deletePublication(publication.id)" class="border border-black">Eliminar</button>
+        <div class="w-full flex flex-wrap gap-4 justify-end mt-4">
+          <button @click="editPublicationHandler(publication)" class="border border-black rounded-md p-2  hover:shadow-2xl">Editar Publicación</button>
+        <button @click="deletePublication(publication.id)" class="border border-black rounded-md p-2 hover:shadow-2xl">Eliminar</button>
+        </div>
       </li>
       <p v-if="filteredPublications.length == 0">No hay publicaciones Disponibles</p>
     </ul>
@@ -49,7 +51,7 @@ const publications = ref([]);
 const userName = ref('');
 const isEditing = ref(false);
 const editPublication = ref({});
-
+ 
 // Función para manejar la obtención de las publicaciones
 const imprimir = async () => {
   try {

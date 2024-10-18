@@ -10,7 +10,7 @@
       </p>
     </div>
 
-    <!-- Icono de usuario y menú desplegable -->
+    <!-- Icono de usuario y menú desplegable
     <div class="relative">
       <button @click="toggleDropdown" class="flex items-center p-2 rounded-full hover:bg-gray-700">
         <svg class="h-6 w-6 text-gray-300" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -24,6 +24,7 @@
           sesión</a>
       </div>
     </div>
+     -->
   </div>
 </template>
 

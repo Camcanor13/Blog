@@ -1,114 +1,196 @@
 <template>
-  <div class="max-w-6xl mx-auto px-12 py-10 rounded-lg ">
-    <!-- CAMPO PARA BÚSQUEDA -->
-    <div class="mb-10">
-      <form class="flex items-center justify-between bg-gray-100 p-4 rounded-lg">
-        <h3 class="text-xl font-semibold text-gray-700">Búsqueda rápida:</h3>
-        <div class="flex flex-grow items-center ml-4">
-          <select v-model="filterBy" class="p-2 mr-4 bg-white border border-gray-300 rounded-md text-gray-700">
-            <option value="title">Título</option>
-            <option value="date">Fecha</option>
-            <option value="author">Autor</option>
-          </select>
-          <input v-if="filterBy === 'title' || filterBy === 'author'" v-model="searchTerm" placeholder="Buscar..."
-            type="text" class="flex-grow p-2 bg-white border border-gray-300 rounded-md text-gray-700" />
-          <input v-if="filterBy === 'date'" v-model="searchTerm" type="date"
-            class="p-2 bg-white border border-gray-300 rounded-md text-gray-700" />
-        </div>
-      </form>
-    </div>
 
-    <!-- CONTENEDOR DE PUBLICACIONES -->
-    <div v-if="filteredPublications.length">
-      <h1 class="text-2xl font-bold leading-tight md:text-3xl mb-6">Publicaciones:</h1>
-      <ul class="space-y-5">
-        <li v-for="publication in filteredPublications" :key="publication.id"
-          class="border border-gray-200 p-5 bg-white rounded-lg shadow-md hover:shadow-lg hover:shadow-gray-500 hover:bg-slate-300 cursor-pointer transition-shadow duration-300 p-6 "
-          @click="selectPublication(publication.id)">
-          <div class="flex justify-between items-center">
-            <span class="text-sm font-light text-gray-500">{{ formatDate(publication.date) }}</span>
-            <span :class="statusClass(publication.status)" class="text-sm font-bold">{{ publication.status }}</span>
-            <!-- En el template -->
-            <button v-if="isUserModerator" @click.stop="changePublicationStatus(publication.id)"
-              class="px-4 py-2 bg-cyan-400 text-dark font-bold  rounded-md hover:bg-yellow-600 hover:text-white ">CAMBIAR
-              ESTADO</button>
-
-          </div>
-          <a class="mt-2 block text-2xl text-gray-800 font-semibold hover:text-gray-600" href="#">{{ publication.title
-            }}</a>
-          <p class="mt-1 text-gray-600">{{ publication.body }}</p>
-          <div class="flex justify-between items-center mt-4">
-            <div v-if="selectedPublicationId === publication.id">
-              <h2>Comentarios:</h2>
-              <div v-for="coment in comments" :key="coment.id">
-           
-                <p>{{coment.id}}{{ coment.comment }} - comentario realizado por: {{ coment.userName }}</p>
-              </div>
-             
-              <input v-model="comentario" type="text" placeholder="Deja un comentario" id="comentario" name="comentario" class="p-2 border border-gray-300 rounded-md" />
-              <button @click="submitComment(publication.id)" type="submit" class="mt-2 bg-blue-500 text-white px-4 py-2 rounded-md">Enviar</button>
-
-              <p>Calificaciones:</p>
-              <div v-if="califications.length === 0">
-                <p>No hay calificaciones disponibles</p>
-              </div>
-            <div v-for="calificacion in califications" :key="calificacion.id">
-              <p>{{ calificacion.calification }} estrella, realizado por: {{ calificacion.userName }}</p>
-              <button v-if="isOwner(calificacion.userName)" @click="deleteCalification(calificacion.id)">Eliminar</button>
-            </div>
-              <div class="border">
-              <button v-if="isUserLector" @click="submitCalification(publication.id)" type="submit" class="border p-3 bg-green-500 text-white rounded-md">Calificar</button>
-             
-              <select v-if="isUserLector" v-model="selectedCalification">
-                <option value="0">0 estrella (Muy Malo)</option> 
-               <option value="1">1 estrella (Malo)</option> 
-               <option value="2">2 estrella(Regular)</option> 
-               <option value="3">3 estrella (Normal)</option> 
-               <option value="4">4 estrella(Bueno)</option> 
-               <option value="5">5 estrella (Excelente)</option> 
+  <div class="w-full flex justify-center overflow-hidden">
+    <div class="grid grid-cols-[25%,55%,20%] w-11/12 md:gap-x-4">
+      <!-- CAMPO PARA BÚSQUEDA -->
+      <div class=" w-full flex flex-wrap gap-y-6 py-5 h-fit">
+        <section class="bg-gray-200 border-gray-100 p-5 h-fit w-full rounded-md">
+          <form class="flex flex-wrap items-center justify-between w-full">
+            <h3 class="text-xl font-semibold text-gray-700 w-full">Búsqueda rápida:</h3>
+            <div class="flex flex-grow items-center">
+              <select v-model="filterBy"
+                class="p-2  mr-4 bg-white border border-gray-300 rounded-md text-gray-700 w-1/4">
+                <option value="title">Título</option>
+                <option value="date">Fecha</option>
+                <option value="author">Autor</option>
               </select>
+              <input v-if="filterBy === 'title' || filterBy === 'author'" v-model="searchTerm" placeholder="Buscar..."
+                type="text" class="flex-grow p-2 bg-white border border-gray-300 rounded-md text-gray-700 w-3/4" />
+              <input v-if="filterBy === 'date'" v-model="searchTerm" type="date"
+                class="p-2 bg-white border border-gray-300 rounded-md text-gray-700 w-3/4" />
             </div>
-            <button  v-if="isUserLector" @click="toggleLike(publication.id)" class="bg-purple-600 text-white px-4 py-2 rounded-md">
-              {{ userHasLiked ? 'No me gusta' : 'Me gusta' }}
-            </button>
-            </div>
-            <div>
-              <a class="flex items-center" href="#">
-                <h1 class="text-gray-700 font-bold hover:underline">{{ publication.author }}</h1>
-              </a>
-              
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
+          </form>
+        </section>
+        <section class="bg-gray-200 border-gray-100 p-5 h-fit w-full rounded-md">
 
-    <div v-else>
-      <p class="text-center text-gray-500">No hay publicaciones disponibles.</p>
+        </section>
+
+      </div>
+      <main class="w-full bg-white border-gray-900 p-5">
+        <!-- CONTENEDOR DE PUBLICACIONES -->
+        <div v-if="filteredPublications.length">
+          <!-- <h1 class="text-2xl font-bold leading-tight md:text-3xl mb-6">Publicaciones:</h1> -->
+          <div class="flex flex-wrap gap-y-5">
+            <article v-for="publication in filteredPublications" :key="publication.id"
+              class="w-full border border-gray-200 p-5 bg-white rounded-lg shadow-md hover:shadow-lg hover:shadow-gray-500 hover:bg-slate-100 cursor-pointer transition-shadow duration-300 p-6">
+              <div class="flex flex-wrap justify-between mb-4">
+                <div class="w-1/5 flex flex-wrap items-center">
+                  <div class="w-1/4">
+                    <button id="headlessui-menu-button-3" type="button" aria-haspopup="menu" aria-expanded="false"
+                      data-headlessui-state=""
+                      class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 hover:bg-white"><span
+                        class="absolute -inset-1.5"></span><span class="sr-only">Open user menu</span><img
+                        class="h-8 w-8 rounded-full"
+                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80"
+                        alt=""></button>
+                  </div>
+                  <div class="w-3/4 ">
+                    <p class="m-0 px-4 text-gray-700 font-bold text-2xl">{{ publication.author }}</p>
+                    <small class="m-0 px-4 font-light text-gray-500">{{ formatDate(publication.date) }}</small>
+                  </div>
+                </div>
+                <div class="w-1/2 flex justify-between">
+                  <span :class="statusColor[publication.status]" data-v-bb81842d=""
+                    class="px-3 py-1 inline-flex items-center rounded-md px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10 font-bold rounded italic text-base text-sm font-bold capitalize h-fit"
+                    @click="changePublicationStatus(publication.id)">{{
+                      publication.status
+                    }}</span>
+                </div>
+              </div>
+              <h2 class="mt-2 block text-2xl text-gray-800 font-semibold hover:text-gray-600 my-4"><b>{{
+                publication.title
+              }}</b></h2>
+              <!--<pre class="p-4 text-justify">{{ publication.body }}</pre>-->
+              <p class="mt-1 text-gray-600 py-5">{{ publication.body }}</p>
+              <div class="grid grid-cols-3 gap-3 items-center justify-items-center border-y border-black">
+                <button class="w-full hover:bg-gray-100  px-3 py-1" v-if="isUserLector"
+                  @click="toggleLike(publication.id)">{{ userHasLiked ? 'No me gusta' : 'Me gusta' }}</button>
+                <button class="w-full hover:bg-gray-100  px-3 py-1" @click="openComentarios(publication.id)">Comentar</button>
+                <button class="w-full hover:bg-gray-100  px-3 py-1" @click="openCalificaciones(publication.id)">Calificar</button>
+              </div>
+              <div>
+                <Comentarios :idpublicacion="publication.id" :idUsuario="idUsuario" v-if="comentarioIsOpen.includes(publication.id)"/>
+                <Calificaciones :idpublicacion="publication.id" :idUsuario="idUsuario" :userName="usuario" v-if="calificacionIsOpen.includes(publication.id)" />
+              </div>
+            </article>
+          </div>
+          <ul class="space-y-5">
+            <li v-for="publication in filteredPublications" :key="publication.id"
+              class="border border-gray-200 p-5 bg-white rounded-lg shadow-md hover:shadow-lg hover:shadow-gray-500 hover:bg-slate-300 cursor-pointer transition-shadow duration-300 p-6 "
+              @click="selectPublication(publication.id)">
+              <div class="flex justify-between items-center">
+                <span class="text-sm font-light text-gray-500">{{ formatDate(publication.date) }}</span>
+                <span :class="statusColor[publication.status]" class="text-sm font-bold capitalize"
+                  @click="changePublicationStatus(publication.id)">{{
+                    publication.status
+                  }}</span>
+                <!-- En el template -->
+
+              </div>
+              <a class="mt-2 block text-2xl text-gray-800 font-semibold hover:text-gray-600" href="#">{{
+                publication.title
+              }}</a>
+              <p class="mt-1 text-gray-600">{{ publication.body }}</p>
+              <div class="flex justify-between items-center mt-4">
+                <div v-if="selectedPublicationId === publication.id">
+                  <h2>Comentarios:</h2>
+                  <div v-for="coment in comments" :key="coment.id">
+
+                    <p>{{ coment.id }}{{ coment.comment }} - comentario realizado por: {{ coment.userName }}</p>
+                  </div>
+
+                  <input v-model="comentario" type="text" placeholder="Deja un comentario" id="comentario"
+                    name="comentario" class="p-2 border border-gray-300 rounded-md" />
+                  <button @click="submitComment(publication.id)" type="submit"
+                    class="mt-2 bg-blue-500 text-white px-4 py-2 rounded-md">Enviar</button>
+
+                  <p>Calificaciones:</p>
+                  <div v-if="califications.length === 0">
+                    <p>No hay calificaciones disponibles</p>
+                  </div>
+                  <div v-for="calificacion in califications" :key="calificacion.id">
+                    <p>{{ calificacion.calification }} estrella, realizado por: {{ calificacion.userName }}</p>
+                    <button v-if="isOwner(calificacion.userName)"
+                      @click="deleteCalification(calificacion.id)">Eliminar</button>
+                  </div>
+                  <div class="border">
+                    <button v-if="isUserLector" @click="submitCalification(publication.id)" type="submit"
+                      class="border p-3 bg-green-500 text-white rounded-md">Calificar</button>
+
+                    <select v-if="isUserLector" v-model="selectedCalification">
+                      <option value="0">0 estrella (Muy Malo)</option>
+                      <option value="1">1 estrella (Malo)</option>
+                      <option value="2">2 estrella(Regular)</option>
+                      <option value="3">3 estrella (Normal)</option>
+                      <option value="4">4 estrella(Bueno)</option>
+                      <option value="5">5 estrella (Excelente)</option>
+                    </select>
+                  </div>
+                  <button v-if="isUserLector" @click="toggleLike(publication.id)"
+                    class="bg-purple-600 text-white px-4 py-2 rounded-md">
+                    {{ userHasLiked ? 'No me gusta' : 'Me gusta' }}
+                  </button>
+                </div>
+                <div>
+                  <a class="flex items-center" href="#">
+                    <h1 class="text-gray-700 font-bold hover:underline">{{ publication.author }}</h1>
+                  </a>
+
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div v-else>
+          <p class="text-center text-gray-500">No hay publicaciones disponibles.</p>
+        </div>
+      </main>
+      <div class=" w-full flex-wrap gap-y-6 py-5 h-fit">
+        <h3 class="font-bold">Autores</h3>
+        <section class="bg-gray-200 border-gray-900 p-5 rounded-md">
+          <p>texto de prueba</p>
+        </section>
+        <div>
+          <h3 class="">Estados</h3>
+          <section class="bg-gray-200 border-gray-900 p-5 flex flex-wrap gap-4 py-4 justify-center">
+
+            <span :class="status" v-for="status in statusColor"
+              class="px-3 py-1 rounded-md text-center  text-gray-600 ring-1 ring-inset ring-gray-500/10 italic text-sm font-bold capitalize h-fit w-10/12">
+              Aceptado
+            </span>
+          </section>
+        </div>
+      </div>
+
     </div>
   </div>
 </template>
-
-
-
-
 
 <script setup>
 import { ref, computed, onMounted } from 'vue';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import Comentarios from '../components/Comentarios.vue';
+import Calificaciones from '../components/Calificaciones.vue';
+const comentarioIsOpen = ref([]);
+const calificacionIsOpen = ref([]);
 const comments = ref([]);
 const publications = ref([]);
 const searchTerm = ref('');
 const filterBy = ref('title');
 const userRol = ref(null);  // Rol del usuario actual
 const selectedPublicationId = ref(null);
-const idUsuario = ref('');  
+const idUsuario = ref('holita');
 const usuario = ref(''); // Asegúrate de asignar el ID del usuario
 const comentario = ref('');  // Hacer el campo reactivo
 const selectedCalification = ref(null);
 const califications = ref([]);
-
+const statusColor = {
+  "aceptado": "bg-lime-300",
+  "bloqueado": "bg-red-50",
+  "revision": "bg-yellow-300"
+}
 
 // Obtener rol del usuario actual
 const getUserRole = () => {
@@ -117,9 +199,9 @@ const getUserRole = () => {
     const user = JSON.parse(userData);
     userRol.value = user.rol;  // Asignar rol del usuario
     idUsuario.value = user.id;
-    usuario.value=user.userName;
+    usuario.value = user.userName;
     console.log(usuario.value);
-     // Asegúrate de asignar el ID del usuario
+    // Asegúrate de asignar el ID del usuario
   }
 };
 
@@ -137,6 +219,7 @@ const isvisibibleBoton = computed(() => {
 // Cambiar de estado
 const changePublicationStatus = async (idpublicacion) => {
   try {
+    if (!isUserModerator) return true
     const { value: newStatus } = await Swal.fire({
       title: 'Seleccionar nuevo estado',
       input: 'select',
@@ -175,6 +258,16 @@ const changePublicationStatus = async (idpublicacion) => {
     Swal.fire('Error', 'Error al actualizar la publicación', 'error');
   }
 };
+const openComentarios=(id)=>{
+  const index = comentarioIsOpen.value.indexOf(id); 
+  index==-1? comentarioIsOpen.value.push(id):comentarioIsOpen.value.splice(index, 1);
+  console.log(comentarioIsOpen.value)
+}
+const openCalificaciones=(id)=>{
+  const index = calificacionIsOpen.value.indexOf(id); 
+  index==-1? calificacionIsOpen.value.push(id):calificacionIsOpen.value.splice(index, 1);
+  console.log(calificacionIsOpen.value)
+}
 
 
 // Seleccionar publicación y obtener los comentarios
@@ -182,9 +275,10 @@ const selectPublication = (id) => {
   selectedPublicationId.value = id;
   comments.value = []; // Limpiar comentarios
   califications.value = []; // Limpiar calificaciones
+  //TODO quitar esto y pasarlo a componentes
   imprimirComentarios(id);
   imprimirCalifications(id);
- getLikeStatus(id); // Verificar "Me gusta" para la publicación seleccionada
+  getLikeStatus(id); // Verificar "Me gusta" para la publicación seleccionada
 };
 
 const imprimirComentarios = async (idpublicacion) => {
@@ -211,6 +305,7 @@ const imprimirCalifications = async (idPublication) => {
 
 // Enviar comentario
 const submitComment = async (idpublicacion) => {
+  alert('Comentario guardado satisfactoriamente')
   getUserRole();  // Actualizar el rol del usuario
 
   if (comentario.value.trim() === '') {
@@ -254,8 +349,6 @@ const imprimir = async () => {
 onMounted(() => {
   getUserRole();  // Actualizar el rol del usuario al montar el componente
   imprimir();
- 
-  
 });
 
 const filteredPublications = computed(() => {
@@ -279,10 +372,7 @@ const filteredPublications = computed(() => {
   });
 });
 
-// Asignar clases de estado a las publicaciones
-const statusClass = (status) => {
-  return `px-3 py-1 ${status === 'bloqueado' ? 'inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10' : 'inline-flex items-center rounded-md bg-gray-100 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10'} font-bold rounded italic text-base`;
-};
+
 
 // Formatear la fecha
 const formatDate = (dateString) => {
@@ -319,7 +409,7 @@ const submitCalification = async (idpublicacion) => {
 const deleteCalification = async (calificationId) => {
   try {
     const response = await axios.delete(`/api/DeleteCalification/${calificationId}`);
-    
+
     if (response.status === 200) {
       Swal.fire('Éxito', 'Calificación eliminada', 'success');
       // Actualiza la lista de calificaciones después de la eliminación
@@ -376,7 +466,7 @@ const getLikeStatus = async (publicationId) => {
     const usersWhoLiked = response.data;
 
     console.log('Usuarios que han dado me gusta:', usersWhoLiked);
-    console.log('Usuario actual:', usuario.value);
+    console.log('Usuario actual:', idUsuario.value);
 
     // Verifica si el nombre de usuario actual está en la lista
     userHasLiked.value = usersWhoLiked.some(user => user.userName === usuario.value);
